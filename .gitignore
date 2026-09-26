@@ -1,0 +1,19 @@
+# Données du projet (on garde les dossiers mais on ignore le contenu)
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Fichiers de compilation Arduino
+src/arduino/build/
+*.hex
+*.elf
+
+# Fichiers de compilation et d'environnement Python
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# Fichiers système Windows
+Thumbs.db
