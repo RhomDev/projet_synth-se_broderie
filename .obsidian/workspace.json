@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "79e487aae450ec91",
+        "id": "99e33657c2bd640e",
         "type": "tabs",
         "children": [
           {
-            "id": "8b058b9e871c5c3c",
+            "id": "488eb9f648ce98e0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "docs/management/Tache sur machine.md",
-                "mode": "source",
-                "source": false
+                "file": "docs/datasheets/capteur_position_H21A1.pdf"
               },
-              "icon": "lucide-file",
-              "title": "Tache sur machine"
+              "icon": "lucide-file-text",
+              "title": "capteur_position_H21A1"
             }
           }
         ]
@@ -188,9 +186,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "8b058b9e871c5c3c",
+  "active": "488eb9f648ce98e0",
   "lastOpenFiles": [
-    "docs/datasheets/capteur_position_H21A1.PDF",
+    "data/rapport_capteur_h21a1.md",
+    "data/_img_cache/Screenshot From 2026-09-29 14-12-44.png",
+    "docs/datasheets/capteur_position_H21A1.pdf",
+    "data/README.md",
+    "data/_img_cache",
+    "data/Unconfirmed 280031.crdownload",
     "docs/management/Tache sur machine.md",
     "docs/carte_de_commande_mks_base_v1_4.md",
     "docs/datasheets/PAGE1.pdf",
