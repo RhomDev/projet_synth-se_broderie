@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project name="proget_manage" company="" webLink="http://" view-date="2026-09-26" view-index="0" gantt-divider-location="351" resource-divider-location="300" version="3.3.3322" locale="fr_FR">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd15" name="Notes" width="20" order="-1"/>
-        <field id="tpd3" name="Nom" width="200" order="0"/>
-        <field id="tpd4" name="Date de début" width="75" order="1"/>
-        <field id="tpd5" name="Date de fin" width="75" order="2"/>
+        <field id="tpd3" name="Name" width="200" order="0"/>
+        <field id="tpd4" name="Begin date" width="75" order="1"/>
+        <field id="tpd5" name="End date" width="75" order="2"/>
+        <field id="tpd15" name="Notes" width="20" order="3"/>
         <option id="filter.completedTasks" value="false"/>
         <option id="filter.dueTodayTasks" value="false"/>
         <option id="filter.overdueTasks" value="false"/>
@@ -38,6 +38,19 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
+        <task id="0" uid="2abb26ce6be0412ea1b4197bc3f9c53b" name="Decouverte la plateforme de programmation" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true"/>
+        <task id="2" uid="71d78ed0b5ec4d5aa707f562ab5a32c7" name="Developpement logiciel" meeting="false" project="true" start="2026-09-28" duration="1" complete="0" expand="false">
+            <task id="4" uid="9ce1916fc09a4357b1a2add7d1a571ac" name="Python : compilation GCode" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true"/>
+            <task id="3" uid="0dee7b7cf33a4366a878b9f1e1d379bb" name="Python : vectorisation" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="9" uid="f652dee521044737a5d7dd58cadc8fa9" name="Conception module" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true">
+            <task id="1" uid="0c7d8bb066de4dec8da34436fec20b76" name="recherche détection aiguille" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="8" uid="ca09f485b932490d9e161f13eaa1d32b" name="Developpement CN" meeting="false" start="2026-09-28" duration="1" complete="0" expand="false">
+            <task id="7" uid="9f1f19ad0cdc413b96bbb51280e9d288" name="Test : point, ligne, rond" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true"/>
+            <task id="6" uid="e314e7298dc3497d9c904683b2abd9eb" name="Arduino : Déploiment CN" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true"/>
+            <task id="5" uid="f6f08118bedf472fb0079561008163c6" name="Arduino : lecture GCode" meeting="false" start="2026-09-28" duration="1" complete="0" expand="true"/>
+        </task>
     </tasks>
     <resources/>
     <allocations/>
