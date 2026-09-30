@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "99e33657c2bd640e",
+        "id": "b12d664713556814",
         "type": "tabs",
         "children": [
           {
-            "id": "488eb9f648ce98e0",
+            "id": "1bdf48c1d9852d61",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "docs/datasheets/capteur_position_H21A1.pdf"
+                "file": "data/mise_en_service_capteur_h21a1.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "capteur_position_H21A1"
+              "icon": "lucide-file",
+              "title": "mise_en_service_capteur_h21a1"
             }
           }
         ]
@@ -186,19 +188,32 @@
       "bases:Create new base": false
     }
   },
-  "active": "488eb9f648ce98e0",
+  "active": "1bdf48c1d9852d61",
   "lastOpenFiles": [
     "data/rapport_capteur_h21a1.md",
+    "docs/datasheets/MKS_BASE_PINS.pdf",
+    "data/mise_en_service_capteur_h21a1.md",
+    "reports/journal",
+    "data/Configuration du PWM sur Arduino.md",
+    "Tempelate.md",
+    "2026-09-29.md",
+    "data/montage_captaur_h21a1.md",
+    "hardware/elect/montage_correction.png",
+    "data/Module_Variateur_AC_files/Module Variateur AC, 1 Canal, Logique 3.3V_5V, AC 50_60Hz, 220V_110V _ RobotDyn.pdf",
+    "hardware/elect/Screenshot From 2026-09-30 15-00-44.png",
+    "data/Module_Variateur_AC_files/hc59b3b4fb01045099833aac368e5da06i_5.webp",
+    "data/Module_Variateur_AC_files/angle_2.webp",
+    "docs/datasheets/PAGE1.pdf",
+    "data/Module_Variateur_AC.html",
+    "data/Module_Variateur_AC_files/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
+    "data/Module_Variateur_AC_files/css2",
+    "data/Module_Variateur_AC_files",
+    "hardware/elect/carte_acquisition_capteur/~carte_acquisition_capteur.kicad_sch.lck",
+    "hardware/elect/carte_acquisition_capteur/~carte_acquisition_capteur.kicad_pro.lck",
     "data/_img_cache/Screenshot From 2026-09-29 14-12-44.png",
-    "docs/datasheets/capteur_position_H21A1.pdf",
     "data/README.md",
-    "data/_img_cache",
-    "data/Unconfirmed 280031.crdownload",
     "docs/management/Tache sur machine.md",
     "docs/carte_de_commande_mks_base_v1_4.md",
-    "docs/datasheets/PAGE1.pdf",
-    "docs/Unconfirmed 671348.crdownload",
-    "docs/datasheets/PAGE2.pdf",
     "README.md"
   ]
 }

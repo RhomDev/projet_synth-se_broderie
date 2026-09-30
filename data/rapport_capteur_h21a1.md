@@ -1,8 +1,14 @@
 ---
 titre: Analyse et Intégration du Capteur Optique H21A1
 date: 2026-09-29
-projet: Module Broderie CNC
-tags: [electronique, capteur, mks_base, datasheet, arduino, cnc]
+projet: Capteur homing
+tags:
+  - electronique
+  - capteur
+  - mks_base
+  - datasheet
+  - arduino
+  - cnc
 statut: en cours
 ---
 
