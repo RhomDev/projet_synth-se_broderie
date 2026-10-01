@@ -1,1 +1,6 @@
-{}
+{
+  "attachmentFolderPath": "docs/assets",
+  "useMarkdownLinks": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "docs"
+}

@@ -1,0 +1,197 @@
+{
+  "nodes": [
+    {
+      "id": "group_management",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -520,
+      "y": -340,
+      "width": 420,
+      "height": 620,
+      "label": "📋 Gestion de Projet & Spécifications",
+      "color": "4"
+    },
+    {
+      "id": "node_cahier_charges",
+      "type": "file",
+      "file": "docs/01_Gestion_Projet/Cahier_des_Charges.md",
+      "styleAttributes": {},
+      "x": -490,
+      "y": -280,
+      "width": 360,
+      "height": 240
+    },
+    {
+      "id": "node_taches",
+      "type": "file",
+      "file": "docs/01_Gestion_Projet/Suivi_des_Taches.md",
+      "styleAttributes": {},
+      "x": -490,
+      "y": 0,
+      "width": 360,
+      "height": 240
+    },
+    {
+      "id": "group_software",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -40,
+      "y": -340,
+      "width": 380,
+      "height": 320,
+      "label": "💻 Chaîne Numérique & Logiciel (PC Hôte)",
+      "color": "5"
+    },
+    {
+      "id": "node_software",
+      "type": "file",
+      "file": "docs/05_Logiciel_et_Firmware/Architecture_Logicielle.md",
+      "styleAttributes": {},
+      "x": -20,
+      "y": -280,
+      "width": 340,
+      "height": 240
+    },
+    {
+      "id": "group_controller",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -40,
+      "y": 60,
+      "width": 380,
+      "height": 400,
+      "label": "🧠 Carte Contrôleur Principale (Temps Réel)",
+      "color": "1"
+    },
+    {
+      "id": "node_mks",
+      "type": "file",
+      "file": "docs/02_Electronique_et_Puissance/Carte_MKS_Base_V1_4.md",
+      "styleAttributes": {},
+      "x": -20,
+      "y": 120,
+      "width": 340,
+      "height": 300
+    },
+    {
+      "id": "group_actuators",
+      "type": "group",
+      "styleAttributes": {},
+      "x": 420,
+      "y": -340,
+      "width": 460,
+      "height": 720,
+      "label": "⚙️ Actionneurs & Puissance Mécanique",
+      "color": "3"
+    },
+    {
+      "id": "node_mecanique",
+      "type": "file",
+      "file": "docs/04_Mecanique_et_Cinematique/Plateau_XY_et_Mecanique.md",
+      "styleAttributes": {},
+      "x": 460,
+      "y": -280,
+      "width": 380,
+      "height": 260
+    },
+    {
+      "id": "node_variateur",
+      "type": "file",
+      "file": "docs/02_Electronique_et_Puissance/Module_Variateur_AC.md",
+      "styleAttributes": {},
+      "x": 460,
+      "y": 40,
+      "width": 380,
+      "height": 300
+    },
+    {
+      "id": "group_sensor",
+      "type": "group",
+      "styleAttributes": {},
+      "x": -40,
+      "y": 520,
+      "width": 880,
+      "height": 360,
+      "label": "👁️ Synchronisation Critique (Détection Aiguille Haute)",
+      "color": "2"
+    },
+    {
+      "id": "node_aop",
+      "type": "file",
+      "file": "docs/03_Capteurs_et_Synchronisation/Conditionnement_AOP_H21A1.md",
+      "styleAttributes": {},
+      "x": 0,
+      "y": 580,
+      "width": 380,
+      "height": 260
+    },
+    {
+      "id": "node_fourche",
+      "type": "file",
+      "file": "docs/03_Capteurs_et_Synchronisation/Fourche_Optique_H21A1.md",
+      "styleAttributes": {},
+      "x": 440,
+      "y": 580,
+      "width": 380,
+      "height": 260
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_sw_to_mks",
+      "fromNode": "node_software",
+      "fromSide": "bottom",
+      "toNode": "node_mks",
+      "toSide": "top",
+      "label": "Flux G-code (USB 115200 bauds)"
+    },
+    {
+      "id": "edge_mks_to_mec",
+      "fromNode": "node_mks",
+      "fromSide": "right",
+      "toNode": "node_mecanique",
+      "toSide": "left",
+      "label": "Signaux Pas-à-Pas (Drivers A4982)"
+    },
+    {
+      "id": "edge_mks_to_var",
+      "fromNode": "node_mks",
+      "fromSide": "right",
+      "toNode": "node_variateur",
+      "toSide": "left",
+      "label": "Impulsion Découpe Phase PSM"
+    },
+    {
+      "id": "edge_var_to_mks_zc",
+      "fromNode": "node_variateur",
+      "fromSide": "left",
+      "toNode": "node_mks",
+      "toSide": "right",
+      "label": "Passage par Zéro ZC (100 Hz)"
+    },
+    {
+      "id": "edge_fourche_to_aop",
+      "fromNode": "node_fourche",
+      "fromSide": "left",
+      "toNode": "node_aop",
+      "toSide": "right",
+      "label": "Signal brut (2V - 5V)"
+    },
+    {
+      "id": "edge_aop_to_mks",
+      "fromNode": "node_aop",
+      "fromSide": "top",
+      "toNode": "node_mks",
+      "toSide": "bottom",
+      "label": "Interruption matérielle INT2 (0V / 5V franc)"
+    },
+    {
+      "id": "edge_cahier_to_taches",
+      "fromNode": "node_cahier_charges",
+      "fromSide": "bottom",
+      "toNode": "node_taches",
+      "toSide": "top",
+      "label": "Définit les jalons"
+    }
+  ]
+}

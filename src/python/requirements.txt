@@ -1,0 +1,5 @@
+# Dépendances Python pour la brodeuse numérique
+pyserial>=3.5
+numpy>=1.24.0
+matplotlib>=3.7.0
+svgpathtools>=1.6.0
