@@ -53,8 +53,8 @@ aliases:
 
 ### 💻 5. Logiciel & Firmware
 * `[[Architecture_Logicielle|💻 Architecture Logicielle & Pipeline Numérique]]` — Chaîne Python (vectorisation/G-code) + Cœur temps réel Arduino.
-* **Firmware Arduino :** `src/arduino/test_H21A1/test_H21A1.ino` (test interruption INT2).
-* **Communication :** `src/python/communication/serial_bridge.py`.
+* **Firmware Arduino :** [[test_H21A1.ino]] (test interruption INT2).
+* **Communication :** [[serial_bridge.py]].
 
 ### 📅 6. Journaux de Bord Quotidiens
 * `[[2026-10-01|📅 Journal du 01 Octobre 2026]]` — Restructuration complète de l'architecture projet & déploiement Obsidian.
@@ -97,23 +97,23 @@ flowchart TD
 
 ## 🚀 Vue Interactive Canvas
 > [!TIP]
-> Ouvrez la vue visuelle interactive complète : **`[[Projet_Broderie.canvas]]`** pour explorer les blocs d'interconnexion matérielle et logicielle sous forme de schéma dynamique.
+> Ouvrez la vue visuelle interactive complète : **[[Projet_Broderie.canvas]]** pour explorer les blocs d'interconnexion matérielle et logicielle sous forme de schéma dynamique.
 
 ---
 
 ## 📚 Bibliothèque de Datasheets & Schémas PDF
-* 📄 `[[capteur_position_H21A1.pdf|Datasheet Fourche Optique H21A1]]`
-* 📄 `[[Module_Variateur_AC_RobotDyn.pdf|Documentation Variateur AC RobotDyn]]`
-* 📄 `[[MKS_BASE_PINS.pdf|Brochage Connecteurs MKS Base V1.4]]`
-* 📄 `[[MKS_BASE_V1_4_Schematic_Alimentation_P1.pdf|Schéma MKS Base - Alimentation]]`
-* 📄 `[[MKS_BASE_V1_4_Schematic_MOSFETs_P2.pdf|Schéma MKS Base - MOSFETs]]`
-* 📄 `[[MKS_BASE_V1_4_Schematic_Drivers_P3.pdf|Schéma MKS Base - Drivers Pas-à-Pas]]`
-* 📄 `[[ATMEGA640.PDF|Datasheet Microcontrôleur ATmega2560 / 640]]`
+* 📄 [[capteur_position_H21A1.pdf|Datasheet Fourche Optique H21A1]]
+* 📄 [[Module_Variateur_AC_RobotDyn.pdf|Documentation Variateur AC RobotDyn]]
+* 📄 [[MKS_BASE_PINS.pdf|Brochage Connecteurs MKS Base V1.4]]
+* 📄 [[MKS_BASE_V1_4_Schematic_Alimentation_P1.pdf|Schéma MKS Base - Alimentation]]
+* 📄 [[MKS_BASE_V1_4_Schematic_MOSFETs_P2.pdf|Schéma MKS Base - MOSFETs]]
+* 📄 [[MKS_BASE_V1_4_Schematic_Drivers_P3.pdf|Schéma MKS Base - Drivers Pas-à-Pas]]
+* 📄 [[ATMEGA640.PDF|Datasheet Microcontrôleur ATmega2560 / 640]]
 
 ---
 
 ## ⚙️ Outils & Modèles Obsidian
 Pour créer une nouvelle note propre et standardisée, utilisez les modèles dans `docs/templates/` :
-* `Template_Fiche_Technique.md` (pour un composant électronique ou mécanique)
-* `Template_Journal.md` (pour le rapport quotidien de séance)
-* `Template_Tache.md` (pour une nouvelle tâche ou réunion)
+* [[Template_Fiche_Technique.md]] (pour un composant électronique ou mécanique)
+* [[Template_Journal.md]] (pour le rapport quotidien de séance)
+* [[Template_Tache.md]] (pour une nouvelle tâche ou réunion)

@@ -65,8 +65,8 @@ projet_synth-se_broderie/
 
 Le répertoire racine est configuré comme coffre (**Obsidian Vault**) prêt à l'emploi :
 1. **Ouvrir le dossier :** Ouvrez simplement le dossier `projet_synth-se_broderie` dans Obsidian.
-2. **Tableau de Bord :** La note [`docs/00_Tableau_de_Bord.md`](file:///home/rhomdev/Documents/Ecole/projet_synth-se_broderie/docs/00_Tableau_de_Bord.md) s'ouvre par défaut et offre une navigation immédiate vers chaque composant du projet.
-3. **Canvas Visuel :** Explorez [`docs/Projet_Broderie.canvas`](file:///home/rhomdev/Documents/Ecole/projet_synth-se_broderie/docs/Projet_Broderie.canvas) pour visualiser les liens dynamiques entre modules logiciels et cartes électroniques.
+2. **Tableau de Bord :** La note [[00_Tableau_de_Bord|Tableau de Bord]] s'ouvre par défaut et offre une navigation immédiate vers chaque composant du projet.
+3. **Canvas Visuel :** Explorez [[Projet_Broderie.canvas]] pour visualiser les liens dynamiques entre modules logiciels et cartes électroniques.
 4. **Nouveaux Documents :** Utilisez la commande *Insert Template* (`Ctrl+T` / `Cmd+T`) pour générer instantanément des fiches techniques ou des journaux de bord formatés.
 
 ---
