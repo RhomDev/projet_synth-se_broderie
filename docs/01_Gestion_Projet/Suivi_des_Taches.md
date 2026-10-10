@@ -30,6 +30,10 @@ aliases:
 
 ## 📌 Tâches Immédiates (Sprint Actuel)
 
+### Informations et connaissances 
+
+- [ ] comprendre le fonctionnement d'une machine à coudre (limite à rencontrer des couturier)
+
 ### Électronique & Câblage
 - [ ] Câbler les moteurs pas à pas des axes X et Y sur les connecteurs dédiés de la `[[Carte_MKS_Base_V1_4|MKS Base V1.4]]`.
 - [ ] Réaliser le montage sur platine ou graver le circuit imprimé du conditionneur AOP (`[[Conditionnement_AOP_H21A1|carte acquisition capteur]]`).
