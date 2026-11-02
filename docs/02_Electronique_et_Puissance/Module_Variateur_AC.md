@@ -27,7 +27,11 @@ Dans le projet de transformation de la machine à coudre mécanique en **brodeus
 Dans la configuration manuelle initiale, ce moteur est commandé par une pédale mécanique servant de rhéostat ou de gradateur à pied. Pour automatiser la broderie, la carte de commande principale (**MKS Base V1.4**, animée par un microcontrôleur **ATmega2560**) doit prendre le contrôle total de cette motorisation.
 
 ### Pourquoi un simple relais ON/OFF est insuffisant ?
+<<<<<<< HEAD
 Initialement, l'utilisation d'un relais électromécanique classique avait été envisagée ( [[Suivi_des_Taches|Tache sur machine]]`). Cependant, cette solution présente des limites rédhibitoires :
+=======
+Initialement, l'utilisation d'un relais électromécanique classique avait été envisagée ([[Suivi_des_Taches|Tache sur machine]]`). Cependant, cette solution présente des limites rédhibitoires :
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 * **Vitesse incontrôlée :** Le relais n'offre qu'un fonctionnement en « tout ou rien » (0% ou 100%). À pleine vitesse (~1000 tours/minute), les accélérations sont trop brutales, entraînant un risque élevé de casse de fil, de saut de points ou de déchirement du textile.
 * **Absence de rampe et de mode d'approche :** Il est impossible de faire tourner la machine au ralenti lors de phases délicates (prise d'origine / *homing*, calibration, points de couture complexes).
 * **Usure mécanique et arcs électriques :** Les commutations répétées sous forte charge inductive détériorent rapidement les contacts du relais.
@@ -39,7 +43,11 @@ Pour obtenir une régulation fine et continue de la vitesse de couture, nous int
 
 ## 2. Principe Fondamental : Découpe de Phase vs PWM Classique
 
+<<<<<<< HEAD
 Une incompréhension fréquente consiste à vouloir piloter une charge alternative en lui appliquant directement un signal PWM continu haute fréquence (tel que le PWM $25\text{ kHz}$ étudié dans  [[Configuration_PWM_Arduino|Configuration du PWM sur Arduino]]`). Cela est physiquement impossible avec un composant à déclenchement de type **TRIAC**.
+=======
+Une incompréhension fréquente consiste à vouloir piloter une charge alternative en lui appliquant directement un signal PWM continu haute fréquence (tel que le PWM $25\text{ kHz}$ étudié dans [[Configuration_PWM_Arduino|Configuration du PWM sur Arduino]]`). Cela est physiquement impossible avec un composant à déclenchement de type **TRIAC**.
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 
 ```
                    Tension AC sinusoïdale (50 Hz, demi-période = 10 ms)
@@ -215,7 +223,11 @@ Pour s'intégrer directement dans le cœur temps réel de la brodeuse sans confl
 2. **Rechargement d'un Timer :** L'ISR calcule la valeur de comparaison selon la vitesse souhaitée.
 3. **Interruption Timer :** Lorsque le timer expire, il génère une impulsion de $15\ \mu\text{s}$ sur la broche `PSM` pour réarmer le TRIAC.
 ```cpp
+// Correspondance des broches sur l'ATmega2560 (MKS Base V1.4) :
+// Pin 2 (ZC_PIN)     = PE4 (INT4)
+// Pin 3 (DIMMER_PIN) = PE5
 
+<<<<<<< HEAD
 volatile uint16_t delay_ticks = 2500;
 volatile bool moteur_actif = false;
 
@@ -312,7 +324,113 @@ ISR(TIMER5_COMPA_vect) {
   _delay_us(15);        // Maintien de l'impulsion (15µs est standard pour amorcer un triac)
   PORTE &= ~(1 << PE5); // Pin 3 (Dimmer) à LOW
 }
+=======
+volatile uint8_t power_level = 0; // Puissance en pourcentage (0 à 100)
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 
+void setup() {
+  Serial.begin(115200);
+
+  // ---------------------------------------------------------
+  // 1. CONFIGURATION DE LA BROCHE DU GRADATEUR (Pin 3 / PE5)
+  // ---------------------------------------------------------
+  DDRE |= (1 << PE5);   // Configure PE5 en sortie
+  PORTE &= ~(1 << PE5); // Force la broche à l'état BAS (TRIAC éteint)
+
+  // ---------------------------------------------------------
+  // 2. CONFIGURATION DE L'INTERRUPTION ZERO-CROSS (Pin 2 / PE4 / INT4)
+  // ---------------------------------------------------------
+  DDRE &= ~(1 << PE4);  // Configure PE4 en entrée
+  PORTE |= (1 << PE4);  // Active la résistance de tirage (Pull-up interne) par sécurité
+
+  // Configuration du registre d'interruption externe (EICRB) pour INT4
+  // ISC41=1 et ISC40=1 déclenchent l'interruption sur un front montant (Rising Edge)
+  EICRB |= (1 << ISC41) | (1 << ISC40); 
+  
+  // Activer l'interruption externe INT4
+  EIMSK |= (1 << INT4);
+
+  // ---------------------------------------------------------
+  // 3. CONFIGURATION DU TIMER1 (Pour le délai de découpe de phase)
+  // ---------------------------------------------------------
+  TCCR1A = 0; // Mode de fonctionnement normal
+  TCCR1B = 0; 
+  // Prédiviseur (Prescaler) de 64 : à 16 MHz, 1 "tick" du timer = 4 µs
+  TCCR1B |= (1 << CS11) | (1 << CS10); 
+  TIMSK1 = 0; // Désactiver les interruptions du Timer1 pour l'instant
+
+  // ---------------------------------------------------------
+  sei(); // Activer les interruptions globales du microcontrôleur
+
+  power_level = 0;
+  Serial.println("Variateur AC initialisé - Moteur à l'arrêt.");
+}
+
+// ---------------------------------------------------------
+// VECTEUR D'INTERRUPTION : Détection du Zero-Crossing (Pin 2)
+// ---------------------------------------------------------
+ISR(INT4_vect) {
+  if (power_level == 0) {
+    PORTE &= ~(1 << PE5); // Sécurité : s'assurer que le TRIAC est coupé
+    return;
+  }
+
+  if (power_level >= 100) {
+    // Puissance maximale : on allume le TRIAC tout de suite
+    PORTE |= (1 << PE5);
+    _delay_us(15);
+    PORTE &= ~(1 << PE5);
+    return;
+  }
+
+  // Calcul du délai pour déclencher le TRIAC
+  // Pour un réseau électrique 50Hz (Europe) :
+  // Une demi-période dure 10 ms = 10 000 µs.
+  // Avec notre prédiviseur (1 tick = 4 µs), 10 ms = 2500 ticks.
+  // Délai = 2500 ticks - (Puissance * 25)
+  uint16_t delay_ticks = 2500 - (power_level * 25);
+
+  TCNT1 = 0;           // Remise à zéro du compteur Timer1
+  OCR1A = delay_ticks; // Assigne la valeur à atteindre
+  
+  TIFR1 |= (1 << OCF1A);  // Efface les anciens drapeaux d'interruption en attente
+  TIMSK1 |= (1 << OCIE1A); // Active l'interruption du Timer1 (Compare Match A)
+}
+
+// ---------------------------------------------------------
+// VECTEUR D'INTERRUPTION : Fin du délai Timer1 -> Allumer le TRIAC
+// ---------------------------------------------------------
+ISR(TIMER1_COMPA_vect) {
+  TIMSK1 &= ~(1 << OCIE1A); // Désactiver l'interruption du Timer1 (elle sera réactivée au prochain ZC)
+
+  // Envoi d'une impulsion pour déclencher la gâchette du TRIAC
+  PORTE |= (1 << PE5);    // Met la broche 3 à l'état HAUT
+  _delay_us(15);          // Impulsion très courte (15 µs suffisent)
+  PORTE &= ~(1 << PE5);   // Remet la broche 3 à l'état BAS (le TRIAC restera passant jusqu'au prochain Zéro)
+}
+
+// ---------------------------------------------------------
+// BOUCLE PRINCIPALE (Identique à votre code d'origine)
+// ---------------------------------------------------------
+void loop() {
+  // Exemple : Rampe d'accélération progressive (démarrage doux)
+  for (int vitesse = 10; vitesse <= 60; vitesse += 5) {
+    power_level = vitesse; // Réglage en pourcentage (0 à 100%)
+    
+    Serial.print("Vitesse moteur réglée à : ");
+    Serial.print(vitesse);
+    Serial.println("%");
+    
+    delay(500);
+  }
+  
+  delay(3000);
+  
+  // Arrêt sécurisé
+  power_level = 0;
+  
+  delay(2000);
+}
 ```
 ---
 
@@ -336,7 +454,11 @@ Régulation Vitesse Couture    Déplacement du Cadre
 ```
 
 1. **Cycle de piquage :** Le variateur AC maintient le moteur à une cadence constante et stabilisée (ex: 300 à 500 points/minute).
+<<<<<<< HEAD
 2. **Synchronisation :** Lorsque l'aiguille remonte et franchit le capteur optique  [[rapport_capteur_h21a1|H21A1]]` (conditionné par la nouvelle carte comparatrice AOP  [[mise_en_service_capteur_h21a1|mise_en_service_capteur_h21a1.md]]`), le microcontrôleur autorise le déplacement des axes $X$ et $Y$.
+=======
+2. **Synchronisation :** Lorsque l'aiguille remonte et franchit le capteur optique [[rapport_capteur_h21a1|H21A1]]` (conditionné par la nouvelle carte comparatrice AOP [[mise_en_service_capteur_h21a1|mise_en_service_capteur_h21a1.md]]`), le microcontrôleur autorise le déplacement des axes $X$ et $Y$.
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 3. **Arrêt d'urgence ou pause de changement de couleur :** La commande `moteurBroderie.setPower(0)` coupe instantanément la puissance moteur pour stopper la couture en fin de motif.
 
 ---
@@ -349,7 +471,14 @@ Régulation Vitesse Couture    Déplacement du Cadre
 
 ---
 **Documents et Références Associés :**
+<<<<<<< HEAD
 *  [[Module Variateur AC, 1 Canal, Logique 3.3V_5V, AC 50_60Hz, 220V_110V _ RobotDyn.pdf]]` — Documentation constructeur RobotDyn
 *  [[Configuration_PWM_Arduino|Configuration du PWM sur Arduino]]` — Étude des timers et PWM ATmega
 *  [[mise_en_service_capteur_h21a1|mise_en_service_capteur_h21a1.md]]` — Conditionnement du capteur de synchronisation aiguille
 *  [[carte_de_commande_mks_base_v1_4|carte_de_commande_mks_base_v1_4.md]]` — Architecture de la carte hôte MKS Base
+=======
+* [[Module Variateur AC, 1 Canal, Logique 3.3V_5V, AC 50_60Hz, 220V_110V _ RobotDyn.pdf]]` — Documentation constructeur RobotDyn
+* [[Configuration_PWM_Arduino|Configuration du PWM sur Arduino]]` — Étude des timers et PWM ATmega
+* [[mise_en_service_capteur_h21a1|mise_en_service_capteur_h21a1.md]]` — Conditionnement du capteur de synchronisation aiguille
+* [[carte_de_commande_mks_base_v1_4|carte_de_commande_mks_base_v1_4.md]]` — Architecture de la carte hôte MKS Base
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)

@@ -1,6 +1,28 @@
 {
 	"nodes":[
 		{
+			"id":"group_actuators",
+			"type":"group",
+			"styleAttributes":{},
+			"x":420,
+			"y":-340,
+			"width":460,
+			"height":720,
+			"color":"3",
+			"label":"⚙️ Actionneurs & Puissance Mécanique"
+		},
+		{
+			"id":"group_sensor",
+			"type":"group",
+			"styleAttributes":{},
+			"x":-40,
+			"y":540,
+			"width":880,
+			"height":340,
+			"color":"2",
+			"label":"👁️ Synchronisation Critique (Détection Aiguille Haute)"
+		},
+		{
 			"id":"group_management",
 			"type":"group",
 			"styleAttributes":{},
@@ -8,8 +30,30 @@
 			"y":-340,
 			"width":420,
 			"height":620,
-			"label":"📋 Gestion de Projet & Spécifications",
-			"color":"4"
+			"color":"4",
+			"label":"📋 Gestion de Projet & Spécifications"
+		},
+		{
+			"id":"group_controller",
+			"type":"group",
+			"styleAttributes":{},
+			"x":-40,
+			"y":60,
+			"width":380,
+			"height":400,
+			"color":"1",
+			"label":"🧠 Carte Contrôleur Principale (Temps Réel)"
+		},
+		{
+			"id":"group_software",
+			"type":"group",
+			"styleAttributes":{},
+			"x":-40,
+			"y":-340,
+			"width":380,
+			"height":320,
+			"color":"5",
+			"label":"💻 Chaîne Numérique & Logiciel (PC Hôte)"
 		},
 		{
 			"id":"node_cahier_charges",
@@ -32,17 +76,6 @@
 			"height":240
 		},
 		{
-			"id":"group_software",
-			"type":"group",
-			"styleAttributes":{},
-			"x":-40,
-			"y":-340,
-			"width":380,
-			"height":320,
-			"label":"💻 Chaîne Numérique & Logiciel (PC Hôte)",
-			"color":"5"
-		},
-		{
 			"id":"node_software",
 			"type":"file",
 			"file":"docs/05_Logiciel_et_Firmware/Architecture_Logicielle.md",
@@ -51,38 +84,6 @@
 			"y":-280,
 			"width":340,
 			"height":240
-		},
-		{
-			"id":"group_controller",
-			"type":"group",
-			"styleAttributes":{},
-			"x":-40,
-			"y":60,
-			"width":380,
-			"height":400,
-			"label":"🧠 Carte Contrôleur Principale (Temps Réel)",
-			"color":"1"
-		},
-		{
-			"id":"node_mks",
-			"type":"file",
-			"file":"docs/02_Electronique_et_Puissance/Carte_MKS_Base_V1_4.md",
-			"styleAttributes":{},
-			"x":-20,
-			"y":120,
-			"width":340,
-			"height":300
-		},
-		{
-			"id":"group_actuators",
-			"type":"group",
-			"styleAttributes":{},
-			"x":420,
-			"y":-340,
-			"width":460,
-			"height":720,
-			"label":"⚙️ Actionneurs & Puissance Mécanique",
-			"color":"3"
 		},
 		{
 			"id":"node_mecanique",
@@ -105,17 +106,6 @@
 			"height":300
 		},
 		{
-			"id":"group_sensor",
-			"type":"group",
-			"styleAttributes":{},
-			"x":-40,
-			"y":520,
-			"width":880,
-			"height":360,
-			"label":"👁️ Synchronisation Critique (Détection Aiguille Haute)",
-			"color":"2"
-		},
-		{
 			"id":"node_aop",
 			"type":"file",
 			"file":"docs/03_Capteurs_et_Synchronisation/Conditionnement_AOP_H21A1.md",
@@ -134,6 +124,16 @@
 			"y":580,
 			"width":380,
 			"height":260
+		},
+		{
+			"id":"node_mks",
+			"type":"file",
+			"file":"docs/02_Electronique_et_Puissance/Carte_MKS_Base_V1_4.md",
+			"styleAttributes":{},
+			"x":-20,
+			"y":120,
+			"width":340,
+			"height":300
 		}
 	],
 	"edges":[

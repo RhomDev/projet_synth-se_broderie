@@ -35,19 +35,26 @@ aliases:
 ```
 
 ### 📋 1. Gestion de Projet & Spécifications
+<<<<<<< HEAD
 * `[[Cahier_des_Charges|🎯 Cahier des Charges & Objectifs]]` — Spécifications issues du sujet initial, missions et jalons.
 * `[[Suivi_des_Taches|📋 Feuille de Route & Suivi des Tâches]]` — Checklist active, priorités du moment et tâches futures.
 * `[[BOM_Liste_des_Besoins|🛒 Nomenclature des Besoins (BOM)]]` — Devis et liste des composants à commander (~77 €).
 * `[[Structure_Taches_Gantt|📊 Décomposition des Tâches WBS (Gantt)]]` — Liste structurée des tâches faites et à faire avec dépendances.
 * `[[Planning_Gantt.gan|📅 Fichier GanttProject]]` — Fichier XML natif GanttProject (deadline 28/01/2027).
 * `[[Tutoriel_Machine_a_Coudre|🧵 Tutoriel Vidéo Janome Facility 21]]` — Guide d'enfilage et de fonctionnement machine.
+=======
+* [[Cahier_des_Charges|🎯 Cahier des Charges & Objectifs]]` — Spécifications issues du sujet initial, missions et jalons.
+* [[Suivi_des_Taches|📋 Feuille de Route & Suivi des Tâches]]` — Checklist active, priorités du moment et tâches futures.
+* [[Planning_Gantt.gan|📊 Diagramme de Gantt (GanttProject)]]` — Calendrier prévisionnel des lots de travail.
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 
 ### ⚡ 2. Électronique & Puissance
-* `[[Carte_MKS_Base_V1_4|🧠 Carte MKS Base V1.4]]` — Cerveau de commande (ATmega2560), drivers A4982, entrées capteurs.
-* `[[Module_Variateur_AC|🔌 Module Variateur AC (RobotDyn)]]` — Découpe de phase par TRIAC pour régulation moteur 230V.
-* `[[Configuration_PWM_Arduino|⏱️ Configuration Fast PWM (25 kHz)]]` — Calcul des registres Timer 1 sur microcontrôleur.
+* [[Carte_MKS_Base_V1_4|🧠 Carte MKS Base V1.4]]` — Cerveau de commande (ATmega2560), drivers A4982, entrées capteurs.
+* [[Module_Variateur_AC|🔌 Module Variateur AC (RobotDyn)]]` — Découpe de phase par TRIAC pour régulation moteur 230V.
+* [[Configuration_PWM_Arduino|⏱️ Configuration Fast PWM (25 kHz)]]` — Calcul des registres Timer 1 sur microcontrôleur.
 
 ### 👁️ 3. Capteurs & Synchronisation Aiguille
+<<<<<<< HEAD
 * `[[Note_Decision_Capteur_Fourche_H21A1|📌 Note de Décision : Abandon Fourche H21A1 & Choix Fin de Course + Encodeur]]` — Justification du passage au contact sec pour le homing et à l'encodeur SEN0230.
 * `[[Capteur_Fin_de_Course_Aiguille|🛑 Capteur Fin de Course Aiguille (Point Mort Haut & Homing)]]` — Détection binaire du PMH et prise d'origine machine.
 * `[[Encodeur_Rotatif_SEN0230|🔄 Encodeur Rotatif SEN0230]]` — Suivi cinématique et mesure de vitesse de rotation (GoTronic).
@@ -69,6 +76,23 @@ aliases:
 * `[[2026-10-01|📅 Journal du 01 Octobre 2026]]` — Restructuration complète de l'architecture projet & déploiement Obsidian.
 * `[[2026-09-30|📅 Journal du 30 Septembre 2026]]` — Conception PCB comparateur AOP & étude du variateur AC RobotDyn.
 * `[[2026-09-29|📅 Journal du 29 Septembre 2026]]` — Étude capteur H21A1, carte MKS Base et initialisation Gantt.
+=======
+* [[Fourche_Optique_H21A1|🔍 Capteur Optique H21A1]]` — Détection de position haute aiguille & analyse des temps de réponse.
+* [[Conditionnement_AOP_H21A1|🛠️ Conditionnement AOP (Comparateur LM741)]]` — Carte d'adaptation d'impédance & PCB KiCad.
+
+### ⚙️ 4. Mécanique & Cinématique
+* [[Plateau_XY_et_Mecanique|📐 Plateau XY & Cinématique]]` — Cadre de broderie, courroies GT2, calcul de résolution et fenêtre temporelle de déplacement hors tissu.
+
+### 💻 5. Logiciel & Firmware
+* [[Architecture_Logicielle|💻 Architecture Logicielle & Pipeline Numérique]]` — Chaîne Python (vectorisation/G-code) + Cœur temps réel Arduino.
+* **Firmware Arduino :** [[test_H21A1.ino]] (test interruption INT2).
+* **Communication :** [[serial_bridge.py]].
+
+### 📅 6. Journaux de Bord Quotidiens
+* [[2026-10-01|📅 Journal du 01 Octobre 2026]]` — Restructuration complète de l'architecture projet & déploiement Obsidian.
+* [[2026-09-30|📅 Journal du 30 Septembre 2026]]` — Conception PCB comparateur AOP & étude du variateur AC RobotDyn.
+* [[2026-09-29|📅 Journal du 29 Septembre 2026]]` — Étude capteur H21A1, carte MKS Base et initialisation Gantt.
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 
 ---
 

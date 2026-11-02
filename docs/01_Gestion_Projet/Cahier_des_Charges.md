@@ -77,8 +77,16 @@ Un plateau mécanique 2 axes ($X$ et $Y$) entraîné par des moteurs pas-à-pas 
 
 ---
 **Documents associés :**
+<<<<<<< HEAD
 * [[Carte_MKS_Base_V1_4|Architecture Carte MKS Base]]
 * [[Plateau_XY_et_Mecanique|Mécanique Plateau XY]]
 * [[Fourche_Optique_H21A1|Capteur H21A1]]
 * [[Module_Variateur_AC|Variateur AC]]
 * [[Suivi_des_Taches|Feuille de Route & Tâches]]
+=======
+* [[Carte_MKS_Base_V1_4]]`
+* [[Plateau_XY_et_Mecanique|Mécanique Plateau XY]]`
+* [[Fourche_Optique_H21A1|Capteur H21A1]]`
+* [[Module_Variateur_AC|Variateur AC]]`
+* [[Suivi_des_Taches|Feuille de Route & Tâches]]`
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)

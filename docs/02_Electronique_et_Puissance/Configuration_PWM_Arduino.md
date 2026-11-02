@@ -64,6 +64,12 @@ Pour le pilotage du moteur alternatif de la machine à coudre, le système utili
 
 ---
 **Voir aussi :**
+<<<<<<< HEAD
 *  [[Module_Variateur_AC|Étude complète du Variateur AC RobotDyn]] 
 *  [[Carte_MKS_Base_V1_4|Architecture Carte MKS Base]] 
 *  [[ATMEGA640.PDF|Datasheet Atmel ATmega]] 
+=======
+* [[Module_Variateur_AC|Étude complète du Variateur AC RobotDyn]]`
+* [[Carte_MKS_Base_V1_4|Architecture Carte MKS Base]]`
+* [[ATMEGA640.PDF|Datasheet Atmel ATmega]]`
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
