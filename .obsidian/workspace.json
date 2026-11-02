@@ -11,12 +11,14 @@
             "id": "3968697218b58ecf",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "docs/datasheets/MKS_BASE_V1_4_Schematic_Alimentation_P1.pdf"
+                "file": "reports/comparateur-aop-choix.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-file-text",
-              "title": "MKS_BASE_V1_4_Schematic_Alimentation_P1"
+              "icon": "lucide-file",
+              "title": "comparateur-aop-choix"
             }
           }
         ]
@@ -44,7 +46,7 @@
                 "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
-              "title": "Explorateur de fichiers"
+              "title": "Files"
             }
           },
           {
@@ -178,20 +180,28 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Ouvrir le sélecteur rapide": false,
-      "graph:Ouvrir la vue graphique": false,
-      "canvas:Créer un nouveau canvas": false,
-      "daily-notes:Ouvrir la note quotidienne": false,
-      "templates:Insérer le modèle": false,
-      "command-palette:Ouvrir la palette de commandes": false,
-      "bases:Créer une nouvelle base": false,
-      "antigravity-cli-sidebar:Open Antigravity CLI": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
     }
   },
-  "active": "3968697218b58ecf",
+  "active": "9eec5a121da3cb05",
   "lastOpenFiles": [
-    "hardware/elect/carte_variation_AC/carte_variation_AC.kicad_pro.kicad-save-46200-12",
-    "hardware/elect/carte_variation_AC/carte_variation_AC.kicad_prl",
+    "docs/datasheets/LM158.PDF",
+    "docs/datasheets/Unconfirmed 515999.crdownload",
+    "docs/datasheets/LM193.PDF",
+    "docs/datasheets/Unconfirmed 69010.crdownload",
+    "docs/datasheets/LM118.PDF",
+    "docs/datasheets/Unconfirmed 796258.crdownload",
+    "docs/datasheets/TL084.PDF",
+    "docs/datasheets/TL081_101.PDF",
+    "docs/datasheets/tl084.pdf",
+    "docs/datasheets/PC814.PDF",
+    "docs/datasheets/Partie1.pdf",
     "hardware/elect/Variation_AC.png",
     "reports/journal/2026-09-29.md",
     "docs/02_Electronique_et_Puissance/Configuration_PWM_Arduino.md",
@@ -213,7 +223,6 @@
     "hardware/elect/montage_correction.png",
     "docs/00_Tableau_de_Bord.md",
     "docs/Projet_Broderie.canvas",
-    "docs/datasheets/web_archives/RobotDyn_Variateur/Module Variateur AC, 1 Canal, Logique 3.3V_5V, AC 50_60Hz, 220V_110V _ RobotDyn.pdf",
     "docs/datasheets/web_archives/RobotDyn_Variateur/angle_2.webp",
     "docs/assets/angle_2.webp",
     "docs/assets/Screenshot From 2026-09-29 14-12-44.png",
@@ -223,16 +232,8 @@
     "docs/templates/Template_Tache.md",
     "docs/templates/Template_Fiche_Technique.md",
     "docs/templates/Template_Journal.md",
-    "data/Module_Variateur_AC_files/Module Variateur AC, 1 Canal, Logique 3.3V_5V, AC 50_60Hz, 220V_110V _ RobotDyn.pdf",
     "docs/01_Gestion_Projet/Cahier_des_Charges.md",
-    "docs/01_Gestion_Projet/Module_Broderie.docx",
-    "docs/01_Gestion_Projet/Planning_Gantt.gan",
     "docs/01_Gestion_Projet/Suivi_des_Taches.md",
-    "docs/datasheets/web_archives/RobotDyn_Variateur/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495",
-    "docs/datasheets/web_archives/RobotDyn_Variateur/css2",
-    "docs/datasheets/web_archives/RobotDyn_Variateur",
-    "docs/datasheets/MKS_BASE_V1_4_Schematic_Drivers_P3.pdf",
-    "docs/datasheets/MKS_BASE_V1_4_Schematic_MOSFETs_P2.pdf",
     "data/Module_Variateur_AC_files/angle_2.webp",
     "data/Module_Variateur_AC_files/hc59b3b4fb01045099833aac368e5da06i_5.webp",
     "Untitled.canvas",
