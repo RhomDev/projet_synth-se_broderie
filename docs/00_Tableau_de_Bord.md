@@ -37,8 +37,10 @@ aliases:
 ### 📋 1. Gestion de Projet & Spécifications
 * `[[Cahier_des_Charges|🎯 Cahier des Charges & Objectifs]]` — Spécifications issues du sujet initial, missions et jalons.
 * `[[Suivi_des_Taches|📋 Feuille de Route & Suivi des Tâches]]` — Checklist active, priorités du moment et tâches futures.
+* `[[BOM_Liste_des_Besoins|🛒 Nomenclature des Besoins (BOM)]]` — Devis et liste des composants à commander (~77 €).
 * `[[Structure_Taches_Gantt|📊 Décomposition des Tâches WBS (Gantt)]]` — Liste structurée des tâches faites et à faire avec dépendances.
-* `[[Planning_Gantt.gan|📅 Fichier GanttProject]]` — Fichier XML natif GanttProject.
+* `[[Planning_Gantt.gan|📅 Fichier GanttProject]]` — Fichier XML natif GanttProject (deadline 28/01/2027).
+* `[[Tutoriel_Machine_a_Coudre|🧵 Tutoriel Vidéo Janome Facility 21]]` — Guide d'enfilage et de fonctionnement machine.
 
 ### ⚡ 2. Électronique & Puissance
 * `[[Carte_MKS_Base_V1_4|🧠 Carte MKS Base V1.4]]` — Cerveau de commande (ATmega2560), drivers A4982, entrées capteurs.
