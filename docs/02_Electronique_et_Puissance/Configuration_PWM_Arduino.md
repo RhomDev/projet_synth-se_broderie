@@ -19,14 +19,14 @@ aliases:
 ## 1. Principe des Timers & Registre TOP
 Le registre **ICR1** du Timer 1 définit le plafond (la valeur « TOP ») que le compteur interne doit atteindre avant de repartir à zéro. Le temps mis pour accomplir ce cycle détermine la fréquence finale du signal PWM généré.
 
-```
+   
        Valeur Compteur
    TOP ^      /|      /|      /|
  (639) |     / |     / |     / |
        |    /  |    /  |    /  |
      0 +---+---+---+---+---+---+---> Temps
        |<-- Période PWM (40 µs) -->|
-```
+   
 
 ---
 
@@ -49,9 +49,9 @@ $$TOP = \frac{f_{\text{CPU}}}{N \times f_{\text{PWM}}} - 1$$
 $$TOP = \frac{16\,000\,000}{1 \times 25\,000} - 1 = 640 - 1 = 639$$
 
 L'instruction en C / registres :
-```cpp
+   cpp
 ICR1 = 639; // Fixe la période à exactement 40 µs (fréquence 25 kHz)
-```
+   
 
 Le microcontrôleur boucle donc de 0 à 639 à chaque période, générant précisément 25 000 impulsions par seconde.
 
@@ -64,6 +64,6 @@ Pour le pilotage du moteur alternatif de la machine à coudre, le système utili
 
 ---
 **Voir aussi :**
-* `[[Module_Variateur_AC|Étude complète du Variateur AC RobotDyn]]`
-* `[[Carte_MKS_Base_V1_4|Architecture Carte MKS Base]]`
-* `[[ATMEGA640.PDF|Datasheet Atmel ATmega]]`
+*  [[Module_Variateur_AC|Étude complète du Variateur AC RobotDyn]] 
+*  [[Carte_MKS_Base_V1_4|Architecture Carte MKS Base]] 
+*  [[ATMEGA640.PDF|Datasheet Atmel ATmega]] 

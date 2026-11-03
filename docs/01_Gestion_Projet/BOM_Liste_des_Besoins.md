@@ -18,7 +18,7 @@ aliases:
 
 # 🛒 Nomenclature des Besoins & Approvisionnement (BOM)
 
-Ce document formalise la liste des matériels et composants à commander pour la brodeuse numérique CNC, issue des spécifications validées et du fichier de suivi [`reports/Produits_a_acheter.xlsx`](file:///home/rhomdev/Documents/Ecole/2026-27/projet_synth-se_broderie/reports/Produits_a_acheter.xlsx).
+Ce document formalise la liste des matériels et composants à commander pour la brodeuse numérique CNC, issue des spécifications validées et du fichier de suivi [ reports/Produits_a_acheter.xlsx ](file:///home/rhomdev/Documents/Ecole/2026-27/projet_synth-se_broderie/reports/Produits_a_acheter.xlsx).
 
 ---
 
@@ -47,8 +47,8 @@ Ce document formalise la liste des matériels et composants à commander pour la
 
 ---
 **Voir aussi :**
-* `[[Capteur_Fin_de_Course_Aiguille|Fiche Fin de Course Aiguille]]`
-* `[[Encodeur_Rotatif_SEN0230|Fiche Encodeur SEN0230]]`
-* `[[Module_Variateur_AC|Fiche Variateur AC RobotDyn]]`
-* `[[Structure_Taches_Gantt|Planification Gantt (Tâche 4.1)]]`
-* Fichier Excel source : [`reports/Produits_a_acheter.xlsx`](file:///home/rhomdev/Documents/Ecole/2026-27/projet_synth-se_broderie/reports/Produits_a_acheter.xlsx)
+*  [[Capteur_Fin_de_Course_Aiguille|Fiche Fin de Course Aiguille]] 
+*  [[Encodeur_Rotatif_SEN0230|Fiche Encodeur SEN0230]] 
+*  [[Module_Variateur_AC|Fiche Variateur AC RobotDyn]] 
+*  [[Structure_Taches_Gantt|Planification Gantt (Tâche 4.1)]] 
+* Fichier Excel source : [ reports/Produits_a_acheter.xlsx ](file:///home/rhomdev/Documents/Ecole/2026-27/projet_synth-se_broderie/reports/Produits_a_acheter.xlsx)

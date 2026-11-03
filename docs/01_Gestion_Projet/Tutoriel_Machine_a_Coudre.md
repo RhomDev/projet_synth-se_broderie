@@ -21,5 +21,5 @@ Ce tutoriel vidéo a servi de support d'apprentissage pour la prise en main de l
 
 ---
 **Voir aussi :**
-* `[[2026-11-02|Journal du 02 Novembre 2026 (Essais réussis)]]`
-* `[[fiche technique - janome facility 21.pdf|Fiche Technique Janome Facility 21]]`
+*  [[2026-11-02|Journal du 02 Novembre 2026 (Essais réussis)]] 
+*  [[fiche technique - janome facility 21.pdf|Fiche Technique Janome Facility 21]] 

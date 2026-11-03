@@ -21,7 +21,7 @@ aliases:
 ## 📌 Présentation Générale
 La **MKS Base V1.4** constitue le centre névralgique (carte mère) de la brodeuse numérique. Cette carte intègre sur un même circuit imprimé un microcontrôleur équivalent à un **Arduino Mega 2560** et 5 contrôleurs de puissance (drivers) pour moteurs pas-à-pas (compatibles A4982/A4988).
 
-```
+   
                             +--------------------------+
                             |  Alimentation 12V / 24V  |
                             +--------------------------+
@@ -37,7 +37,7 @@ La **MKS Base V1.4** constitue le centre névralgique (carte mère) de la brodeu
                      | Capteur H21A1     |    | Variateur AC RobotDyn    |
                      | Synchro Aiguille  |    | Moteur 230V Couture      |
                      +-------------------+    +--------------------------+
-```
+   
 
 ---
 
@@ -58,27 +58,27 @@ La **MKS Base V1.4** constitue le centre névralgique (carte mère) de la brodeu
    * Connecteur moteur **X** : Translation gauche/droite du cadre.
    * Connecteur moteur **Y** : Translation avant/arrière du chariot.
 2. **Synchronisation Aiguille & Homing (Fin de Course + Encodeur SEN0230) :**
-   * **Fin de course aiguille :** Raccordé sur une entrée Endstop (ex: Z-Min ou broche d'interruption `INT2` / Pin 19) pour détecter le Point Mort Haut (PMH) et assurer la procédure de homing sécurisé de l'aiguille.
+   * **Fin de course aiguille :** Raccordé sur une entrée Endstop (ex: Z-Min ou broche d'interruption  INT2  / Pin 19) pour détecter le Point Mort Haut (PMH) et assurer la procédure de homing sécurisé de l'aiguille.
    * **Encodeur SEN0230 :** Voies A et B connectées sur entrées numériques / interruptions pour le calcul de vitesse et de position angulaire en continu.
 3. **Fins de Course Plateau X et Y :**
-   * Raccordés sur les entrées `X-Min` et `Y-Min` pour le homing et la limitation de course du cadre de broderie.
-4. **Pilotage du Variateur AC RobotDyn :**
-   * Broche `ZC` (Zero Cross) : Raccordée sur une entrée d'interruption pour synchroniser la découpe de phase ($100\text{ Hz}$).
-   * Broche `PSM` (Gate) : Raccordée sur une broche de sortie numérique pour déclencher le TRIAC.
+   * Raccordés sur les entrées  X-Min  et  Y-Min  pour le homing et la limitation de course du cadre de broderie.
+1. **Pilotage du Variateur AC RobotDyn :**
+   * Broche  ZC  (Zero Cross) : Raccordée sur une entrée d'interruption pour synchroniser la découpe de phase ($100\text{ Hz}$).
+   * Broche  PSM  (Gate) : Raccordée sur une broche de sortie numérique pour déclencher le TRIAC.
 
 ---
 
 ## 🚀 Prochaines Étapes
 - [ ] Raccorder les connecteurs 4 broches des moteurs pas-à-pas X et Y.
 - [ ] Alimenter la carte via une alimentation stabilisée $12\text{ V} / 5\text{ A}$.
-- [ ] Connecter le câble USB et valider la communication série avec `src/python/communication/serial_bridge.py`.
+- [ ] Connecter le câble USB et valider la communication série avec  src/python/communication/serial_bridge.py .
 
 ---
 **Ressources & Schémas Associés :**
-* `[[MKS_BASE_PINS.pdf]]` — Brochage officiel MKS Base
-* `[[MKS_BASE_V1_4_Schematic_Alimentation_P1.pdf]]` — Schéma Alimentation
-* `[[MKS_BASE_V1_4_Schematic_MOSFETs_P2.pdf]]` — Schéma Étage de puissance
-* `[[MKS_BASE_V1_4_Schematic_Drivers_P3.pdf]]` — Schéma Drivers Moteurs A4982
-* `[[ATMEGA640.PDF]]` — Datasheet Famille Microcontrôleur ATmega
-* `[[Cahier_des_Charges|Cahier des Charges Broderie]]`
-* `[[Plateau_XY_et_Mecanique|Mécanique Plateau XY]]`
+*  [[MKS_BASE_PINS.pdf]]  — Brochage officiel MKS Base
+*  [[MKS_BASE_V1_4_Schematic_Alimentation_P1.pdf]]  — Schéma Alimentation
+*  [[MKS_BASE_V1_4_Schematic_MOSFETs_P2.pdf]]  — Schéma Étage de puissance
+*  [[MKS_BASE_V1_4_Schematic_Drivers_P3.pdf]]  — Schéma Drivers Moteurs A4982
+*  [[ATMEGA640.PDF]]  — Datasheet Famille Microcontrôleur ATmega
+*  [[Cahier_des_Charges|Cahier des Charges Broderie]] 
+*  [[Plateau_XY_et_Mecanique|Mécanique Plateau XY]] 

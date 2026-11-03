@@ -44,14 +44,14 @@ aliases:
 ### Mécanique & Plateau de Travail
 - [ ] **Revoir le design du plateau de travail :** optimisation des dimensions, rigidification et fixation du cadre.
 - [ ] Concevoir et intégrer les supports pour les **fins de course des axes X et Y** (homing du cadre).
-- [ ] Modéliser et imprimer en 3D la poulie crantée (16 à 18 dents) pour l'`[[Encodeur_Rotatif_SEN0230|encodeur SEN0230]]`.
-- [ ] Installer le support et la came mécanique sur l'arbre pour le `[[Capteur_Fin_de_Course_Aiguille|fin de course aiguille]]`.
+- [ ] Modéliser et imprimer en 3D la poulie crantée (16 à 18 dents) pour l' [[Encodeur_Rotatif_SEN0230|encodeur SEN0230]] .
+- [ ] Installer le support et la came mécanique sur l'arbre pour le  [[Capteur_Fin_de_Course_Aiguille|fin de course aiguille]] .
 
 ### Électronique & Câblage
-- [ ] Câbler le **capteur fin de course aiguille** sur l'entrée Endstop dédiée de la `[[Carte_MKS_Base_V1_4|MKS Base V1.4]]`.
+- [ ] Câbler le **capteur fin de course aiguille** sur l'entrée Endstop dédiée de la  [[Carte_MKS_Base_V1_4|MKS Base V1.4]] .
 - [ ] Câbler l'**encodeur rotatif SEN0230** (alimentation 5V et canaux A/B).
 - [ ] Câbler les **fins de course du plateau X et Y**.
-- [ ] Mettre en place et raccorder le `[[Module_Variateur_AC|Module Variateur AC RobotDyn]]` (230V AC et signaux `ZC` / `PSM`) pour le contrôle de la vitesse moteur.
+- [ ] Mettre en place et raccorder le  [[Module_Variateur_AC|Module Variateur AC RobotDyn]]  (230V AC et signaux  ZC  /  PSM ) pour le contrôle de la vitesse moteur.
 - [ ] Raccorder les moteurs pas-à-pas NEMA 17 des axes X et Y.
 
 ### Firmware & Logiciel
@@ -66,11 +66,11 @@ aliases:
 - [ ] Installer un encodeur rotatif optique ou magnétique au niveau de la roue d'entraînement pour asservir la vitesse en boucle fermée.
 - [ ] Intégrer un écran LCD / interface graphique autonome sur la machine.
 - [ ] Évaluer l'installation d'un capteur laser de distance pour un homing automatique et la détection d'épaisseur de tissu.
-- [ ] Finaliser le convertisseur de fichiers de broderie vectoriels en G-code optimisé (`src/python/algorithms/`).
+- [ ] Finaliser le convertisseur de fichiers de broderie vectoriels en G-code optimisé ( src/python/algorithms/ ).
 
 ---
 **Liens utiles :**
-* `[[Structure_Taches_Gantt|Décomposition des Tâches & WBS Gantt]]`
-* `[[Planning_Gantt.gan|Fichier GanttProject]]`
-* `[[00_Tableau_de_Bord|Tableau de Bord Principal]]`
-* `[[Cahier_des_Charges|Cahier des Charges]]`
+*  [[Structure_Taches_Gantt|Décomposition des Tâches & WBS Gantt]] 
+*  [[Planning_Gantt.gan|Fichier GanttProject]] 
+*  [[00_Tableau_de_Bord|Tableau de Bord Principal]] 
+*  [[Cahier_des_Charges|Cahier des Charges]] 
