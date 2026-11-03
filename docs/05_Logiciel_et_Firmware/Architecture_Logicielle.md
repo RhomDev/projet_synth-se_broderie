@@ -35,7 +35,7 @@ Le système de broderie repose sur une collaboration étroite entre un ordinateu
             v
    [ Firmware Arduino / ATmega2560 : `src/arduino/` ]
    - Décodage des commandes de coordonnées (X, Y)
-   - Synchronisation matérielle avec l'interruption aiguille (H21A1)
+   - Synchronisation matérielle avec le fin de course aiguille (PMH) et l'encodeur SEN0230
    - Pilotage des impulsions pas-à-pas (A4982)
    - Asservissement de vitesse moteur AC (TRIAC RobotDyn)
 ```
@@ -44,7 +44,8 @@ Le système de broderie repose sur une collaboration étroite entre un ordinateu
 
 ## 2. Rôle du Cœur Embarqué (Arduino / C++)
 Situé dans [`src/arduino/`](file:///home/rhomdev/Documents/Ecole/projet_synth-se_broderie/src/arduino/), le firmware est soumis à de fortes contraintes temps réel :
-* **Interruption Prioritaire (Aiguille) :** Gérée par interruption vectorielle matérielle (`INT2` ou similaire) pour réagir en moins de quelques microsecondes au front haut de l'aiguille.
+* **Détection Point Mort Haut & Homing Aiguille :** Gérée par le fin de course mécanique (contact sec franc sur entrée Endstop/interruption) pour valider l'aiguille haute et réinitialiser l'origine.
+* **Suivi de Rotation & Vitesse :** Décodage des impulsions de l'encodeur SEN0230 (400 imp/tr) pour asservir la vitesse du moteur de couture et contrôler la fenêtre angulaire d'avance du cadre.
 * **Ordonnancement des moteurs pas-à-pas :** Génération des trains d'impulsions (STEP/DIR) sur les axes $X$ et $Y$ sans utiliser d'instructions bloquantes de type `delay()`.
 * **Régulation du variateur AC :** Interruption de passage par zéro (`ZC`) et minuterie interne (Timer 1 ou 3) pour le déclenchement de la gâchette TRIAC.
 

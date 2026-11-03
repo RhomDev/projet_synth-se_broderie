@@ -57,10 +57,12 @@ La **MKS Base V1.4** constitue le centre névralgique (carte mère) de la brodeu
 1. **Axes Pas-à-Pas X et Y :**
    * Connecteur moteur **X** : Translation gauche/droite du cadre.
    * Connecteur moteur **Y** : Translation avant/arrière du chariot.
-2. **Synchronisation Aiguille (Fourche Optique H21A1) :**
-   * Raccordement sur une broche d'interruption externe (ex: broche `PD2` / Pin 19 `INT2` ou `D2` / Pin 4 `INT4`).
-   * Déclenchement matériel instantané pour sécuriser le déplacement du cadre uniquement aiguille levée.
-3. **Pilotage du Variateur AC RobotDyn :**
+2. **Synchronisation Aiguille & Homing (Fin de Course + Encodeur SEN0230) :**
+   * **Fin de course aiguille :** Raccordé sur une entrée Endstop (ex: Z-Min ou broche d'interruption `INT2` / Pin 19) pour détecter le Point Mort Haut (PMH) et assurer la procédure de homing sécurisé de l'aiguille.
+   * **Encodeur SEN0230 :** Voies A et B connectées sur entrées numériques / interruptions pour le calcul de vitesse et de position angulaire en continu.
+3. **Fins de Course Plateau X et Y :**
+   * Raccordés sur les entrées `X-Min` et `Y-Min` pour le homing et la limitation de course du cadre de broderie.
+4. **Pilotage du Variateur AC RobotDyn :**
    * Broche `ZC` (Zero Cross) : Raccordée sur une entrée d'interruption pour synchroniser la découpe de phase ($100\text{ Hz}$).
    * Broche `PSM` (Gate) : Raccordée sur une broche de sortie numérique pour déclencher le TRIAC.
 

@@ -62,8 +62,8 @@ Un plateau mécanique 2 axes ($X$ et $Y$) entraîné par des moteurs pas-à-pas 
 * Définition de l'aire utile de broderie et mise en place de la procédure de prise d'origine (*Homing*).
 
 ### 2. Détection de position d'aiguille & Synchronisation critique
-* Choix et intégration d'un capteur de position ultra-rapide (**Fourche optique H21A1**).
-* Conditionnement du signal par comparateur AOP pour éliminer l'effet de charge de la carte MKS Base.
+* Remplacement de la fourche optique H21A1 initiale (abandonnée car trop contraignante et complexe) par un **capteur fin de course mécanique standard (switch PMH)** pour la détection fiable de l'aiguille haute et le homing machine.
+* Intégration d'un **encodeur rotatif SEN0230** (400 imp/tr, 5000 tr/min max) sur la transmission pour le suivi angulaire et l'asservissement en vitesse.
 * **Règle absolue de sécurité :** Le cadre textile ne doit **JAMAIS** se déplacer tant que l'aiguille est engagée dans le tissu. Les moteurs pas-à-pas $X/Y$ ne peuvent translater le tissu que lorsque l'aiguille est en position haute (fenêtre temporelle d'environ $15\text{ ms}$ à $30\text{ ms}$ par cycle à $500-1000\text{ tr/min}$).
 
 ### 3. Contrôle de puissance et vitesse du moteur principal

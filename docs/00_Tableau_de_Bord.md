@@ -37,7 +37,8 @@ aliases:
 ### 📋 1. Gestion de Projet & Spécifications
 * `[[Cahier_des_Charges|🎯 Cahier des Charges & Objectifs]]` — Spécifications issues du sujet initial, missions et jalons.
 * `[[Suivi_des_Taches|📋 Feuille de Route & Suivi des Tâches]]` — Checklist active, priorités du moment et tâches futures.
-* `[[Planning_Gantt.gan|📊 Diagramme de Gantt (GanttProject)]]` — Calendrier prévisionnel des lots de travail.
+* `[[Structure_Taches_Gantt|📊 Décomposition des Tâches WBS (Gantt)]]` — Liste structurée des tâches faites et à faire avec dépendances.
+* `[[Planning_Gantt.gan|📅 Fichier GanttProject]]` — Fichier XML natif GanttProject.
 
 ### ⚡ 2. Électronique & Puissance
 * `[[Carte_MKS_Base_V1_4|🧠 Carte MKS Base V1.4]]` — Cerveau de commande (ATmega2560), drivers A4982, entrées capteurs.
@@ -45,18 +46,24 @@ aliases:
 * `[[Configuration_PWM_Arduino|⏱️ Configuration Fast PWM (25 kHz)]]` — Calcul des registres Timer 1 sur microcontrôleur.
 
 ### 👁️ 3. Capteurs & Synchronisation Aiguille
-* `[[Fourche_Optique_H21A1|🔍 Capteur Optique H21A1]]` — Détection de position haute aiguille & analyse des temps de réponse.
-* `[[Conditionnement_AOP_H21A1|🛠️ Conditionnement AOP (Comparateur LM741)]]` — Carte d'adaptation d'impédance & PCB KiCad.
+* `[[Note_Decision_Capteur_Fourche_H21A1|📌 Note de Décision : Abandon Fourche H21A1 & Choix Fin de Course + Encodeur]]` — Justification du passage au contact sec pour le homing et à l'encodeur SEN0230.
+* `[[Capteur_Fin_de_Course_Aiguille|🛑 Capteur Fin de Course Aiguille (Point Mort Haut & Homing)]]` — Détection binaire du PMH et prise d'origine machine.
+* `[[Encodeur_Rotatif_SEN0230|🔄 Encodeur Rotatif SEN0230]]` — Suivi cinématique et mesure de vitesse de rotation (GoTronic).
+* `[[Fourche_Optique_H21A1|⚠️ Fourche Optique H21A1 (Archivée)]]` — Étude initiale et raisons de son abandon.
+* `[[Conditionnement_AOP_H21A1|🛠️ Conditionnement AOP LM393 (Archivé)]]` — Conception du module comparateur (obsolète suite à l'abandon du H21A1).
+* `[[comparateur-aop-choix|🔬 Choix de l'AOP Comparateur (Archivé)]]` — Comparatif LM318/TL081 vs LM393.
 
 ### ⚙️ 4. Mécanique & Cinématique
-* `[[Plateau_XY_et_Mecanique|📐 Plateau XY & Cinématique]]` — Cadre de broderie, courroies GT2, calcul de résolution et fenêtre temporelle de déplacement hors tissu.
+* `[[Plateau_XY_et_Mecanique|📐 Plateau XY, Redesign & Butées de Fin de Course]]` — Cadre de broderie, redesign du plateau de travail, courroies GT2 et butées X/Y.
 
 ### 💻 5. Logiciel & Firmware
 * `[[Architecture_Logicielle|💻 Architecture Logicielle & Pipeline Numérique]]` — Chaîne Python (vectorisation/G-code) + Cœur temps réel Arduino.
-* **Firmware Arduino :** [[test_H21A1.ino]] (test interruption INT2).
+* **Firmware Arduino :** Routine de homing aiguille, lecture de l'encodeur SEN0230 et contrôle du variateur AC.
 * **Communication :** [[serial_bridge.py]].
 
 ### 📅 6. Journaux de Bord Quotidiens
+* `[[journal_de_bord_aujourdhui|📅 Journal du 02 Novembre 2026 (Aujourd'hui)]]` — Essais manuels réussis (points & carré), abandon de la fourche, choix du fin de course + encodeur SEN0230, liste des besoins et variateur AC.
+* `[[2026-10-23|📅 Journal du 23 Octobre 2026]]` — Étude des AOP et dimensionnement poulie encodeur.
 * `[[2026-10-01|📅 Journal du 01 Octobre 2026]]` — Restructuration complète de l'architecture projet & déploiement Obsidian.
 * `[[2026-09-30|📅 Journal du 30 Septembre 2026]]` — Conception PCB comparateur AOP & étude du variateur AC RobotDyn.
 * `[[2026-09-29|📅 Journal du 29 Septembre 2026]]` — Étude capteur H21A1, carte MKS Base et initialisation Gantt.
@@ -77,18 +84,26 @@ flowchart TD
         Parser --> ControlStep["Contrôle Moteurs Pas-à-Pas<br>(Drivers A4982)"]
         Parser --> ControlAC["Commande Découpe de Phase<br>(Pulse Gate PSM)"]
         ZeroCross["Détection Zéro (ZC)<br>Interruption 100 Hz"] --> ControlAC
-        IntAig["Interruption Aiguille Haute<br>(Pin 19 / INT2)"] --> Parser
+        EndstopAig["Entrée Fin de Course PMH<br>(Homing & Sécurité Aiguille)"] --> Parser
+        EncoderIn["Entrées Encodeur SEN0230<br>(Vitesse & Position Angulaire)"] --> Parser
+        EndstopsXY["Entrées Fins de Course X/Y<br>(Homing Plateau)"] --> Parser
     end
 
     subgraph Hardware["⚙️ Machine & Actionneurs"]
-        ControlStep --> MotXY["Moteurs NEMA 17<br>Axes X & Y Cadre"]
+        ControlStep --> MotXY["Moteurs NEMA 17<br>Axes X & Y Plateau"]
         ControlAC --> Dimmer["Module Variateur AC<br>(RobotDyn TRIAC)"]
-        Dimmer --> MotCouture["Moteur 230V AC<br>Arbre Couture Machine"]
-        MotCouture --> Mecanisme["Mouvement Aiguille<br>& Canette"]
-        Mecanisme --> AOP["Carte Comparateur AOP<br>(LM741)"]
-        AOP --> IntAig
-        Fourche["Fourche Optique<br>H21A1"] --> AOP
+        Dimmer --> MotCouture["Moteur 230V AC<br>Entraînement Machine"]
+        MotCouture --> Mecanisme["Cinématique Aiguille<br>& Canette"]
+        Mecanisme --> EndstopSwitch["Fin de Course Mécanique<br>(Point Mort Haut Came)"]
+        EndstopSwitch --> EndstopAig
+        MotCouture --> EncoderDevice["Encodeur SEN0230<br>(Poulie sur courroie)"]
+        EncoderDevice --> EncoderIn
+        MotXY --> PlateauLimit["Butées Mécaniques<br>(Fins de course X & Y)"]
+        PlateauLimit --> EndstopsXY
     end
+
+    Streamer <== USB ==> USB
+```
 
     Streamer <== USB ==> USB
 ```

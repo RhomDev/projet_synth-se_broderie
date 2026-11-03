@@ -30,7 +30,7 @@ La cinématique d'une brodeuse numérique se distingue fondamentalement d'une fr
 * **Imprimante 3D / CNC :** Déplacement continu et régulier de l'outil pendant l'extrusion ou l'usinage.
 * **Brodeuse CNC :** Mouvement **strictement discontinu**.
   * Pendant que l'aiguille perce le tissu (cycle inférieur, formation de la boucle avec la canette), le tissu doit être **parfaitement immobile**.
-  * Dès que la pointe de l'aiguille quitte la surface du tissu (détecté par la `[[Fourche_Optique_H21A1|fourche optique H21A1]]`), une fenêtre de tir mécanique s'ouvre.
+  * Dès que la pointe de l'aiguille quitte la surface du tissu (détecté par le `[[Capteur_Fin_de_Course_Aiguille|fin de course aiguille]]` et suivi par l'`[[Encodeur_Rotatif_SEN0230|encodeur rotatif SEN0230]]`), une fenêtre de tir mécanique s'ouvre.
   * Le cadre doit alors exécuter l'incrément de déplacement $(\Delta X, \Delta Y)$ correspondant au point de broderie suivant, puis s'immobiliser avant la prochaine pénétration.
 
 ```
@@ -57,11 +57,13 @@ Cette finesse de pas garantit une excellente définition des contours de broderi
 
 ---
 
-## 4. Tâches Mécaniques & Améliorations Prévues
+## 4. Tâches Mécaniques & Améliorations en Cours (Novembre 2026)
+- [ ] **Revoir le design du plateau de travail :** Adapter les dimensions utiles, renforcer la rigidité structurelle et prévoir les fixations rapides du cadre.
+- [ ] **Fins de course du plateau (X et Y) :** Intégrer les supports et câbler les butées de fin de course (*Endstops*) pour le homing automatique des deux axes.
 - [ ] Vérifier la perpendicularité rigoureuse entre l'axe $X$ et l'axe $Y$.
 - [ ] Mesurer et régler la tension des courroies crantées pour éliminer tout jeu d'inversion.
-- [ ] Installer les butées de fin de course (*Endstops*) physiques ou optiques pour le zéro machine (*Homing*).
-- [ ] Évaluer l'ajout d'un capteur de distance laser pour la calibration de planéité.
+- [ ] Installer le support et la came pour le `[[Capteur_Fin_de_Course_Aiguille|fin de course aiguille]]`.
+- [ ] Imprimer la poulie crantée (16-18 dents) et fixer l'`[[Encodeur_Rotatif_SEN0230|encodeur SEN0230]]` sur le châssis.
 
 ---
 **Voir aussi :**

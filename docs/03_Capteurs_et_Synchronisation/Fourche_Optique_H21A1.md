@@ -9,7 +9,7 @@ tags:
   - datasheet
   - arduino
   - cnc
-statut: valide
+statut: abandonne
 aliases:
   - rapport_capteur_h21a1
   - Fourche Optique H21A1
@@ -17,6 +17,11 @@ aliases:
 ---
 
 # Capteur de Position Aiguille : Fourche Optique H21A1
+
+> [!WARNING] Solution Abandonnée (02/11/2026)
+> Cette solution a été **officiellement abandonnée** en raison d'une complexité de conditionnement excessive (tension flottante) et d'exigences d'alignement mécanique trop contraignantes en atelier textile.
+> Le projet adopte désormais un **[[Capteur_Fin_de_Course_Aiguille|fin de course mécanique standard]]** pour la détection du point mort haut et le homing, couplé à un **[[Encodeur_Rotatif_SEN0230|encodeur rotatif SEN0230]]**.
+> Consulter la note d'arbitrage complète : `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision]]`.
 
 ## 1. Rôle dans le Projet Broderie
 Dans le cadre de la transformation de la machine à coudre en brodeuse CNC, il est impératif de synchroniser les mouvements du plateau $X/Y$ avec la position de l'aiguille. Le but est d'interdire tout déplacement du tissu pendant que l'aiguille le traverse.
@@ -50,11 +55,15 @@ La lecture de la documentation constructeur met en évidence la sensibilité de 
 ## 3. Comportement sous Charge & Nécessité du Conditionnement
 Bien que le capteur réagisse rapidement, son impédance de sortie élevée pose un problème direct lorsqu'il est raccordé aux entrées numériques du microcontrôleur ATmega2560 :
 * La tension basse remonte à $2{,}0\text{ V} - 2{,}5\text{ V}$ au lieu de descendre sous $0{,}8\text{ V}$.
-* Cela nécessite l'insertion de l'étage de mise en forme par AOP décrit dans `[[Conditionnement_AOP_H21A1|Conditionnement du signal H21A1]]`.
+* Ce signal flottant stagne dans la zone d'indécision logique du microcontrôleur ATmega2560 ($1{,}5\text{ V} < V < 3{,}0\text{ V}$).
+* L'idée initiale d'utiliser un encodeur rotatif pour contourner ce problème a été rejetée pour éviter de surcharger le processeur avec 6000 interruptions/s (voir la `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision]]`).
+* La solution retenue consiste à insérer un comparateur de tension dédié **LM393** (alimenté en 5V simple, sortie collecteur ouvert avec pull-up), délivrant un signal numérique franc 0V/5V pour déclencher de manière infaillible l'interruption sur front descendant (`FALLING`).
 
 ---
 **Voir aussi :**
-* `[[Conditionnement_AOP_H21A1|Carte Comparateur AOP LM741 & PCB]]`
+* `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision : Maintien du H21A1 vs Encodeur]]`
+* `[[Conditionnement_AOP_H21A1|Carte Comparateur LM393 & PCB]]`
+* `[[comparateur-aop-choix|Choix des composants AOP/Comparateur]]`
 * `[[Carte_MKS_Base_V1_4|Raccordement Carte MKS Base]]`
 * `[[capteur_position_H21A1.pdf|Datasheet officielle H21A1]]`
 * Code de test : `src/arduino/test_H21A1/test_H21A1.ino`

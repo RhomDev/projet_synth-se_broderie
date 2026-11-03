@@ -19,31 +19,45 @@ aliases:
 
 | Sous-système | Statut | Responsable | Prochaine Étape |
 | :--- | :--- | :--- | :--- |
-| **Capteur Aiguille (H21A1)** | 🟢 Étudié / PCB conçu | RhomDev & matazzo | Fabrication PCB & validation banc |
-| **Carte MKS Base V1.4** | 🟡 En cours de câblage | RhomDev | Raccordement moteurs X/Y & alimentation |
-| **Variateur Moteur AC** | 🟢 Modélisé & Documenté | RhomDev | Câblage module RobotDyn & tests sécurisés |
-| **Mécanique Plateau XY** | 🟡 Contrôle à faire | matazzo | Vérification tension courroies & guidages |
-| **Firmware Arduino** | 🟡 Tests partiels (INT2) | RhomDev | Intégration boucle temps réel X/Y/Aiguille |
+| **Capteur Aiguille (H21A1)** | 🔴 Abandonné (trop contraignant) | RhomDev & matazzo | Remplacement par fin de course mécanique |
+| **Synchronisation Aiguille** | 🟢 Solution validée (Fin de course PMH + SEN0230) | RhomDev & matazzo | Montage came PMH & impression poulie encodeur |
+| **Tests Machine Manuels** | 🟢 Validés (02/11/2026) | RhomDev & matazzo | Réalisation de points manuels et d'un carré réussie |
+| **Variateur Moteur AC** | 🟡 En cours de mise en place | RhomDev | Câblage module RobotDyn & régulation vitesse |
+| **Mécanique Plateau XY** | 🟡 Redesign en cours | matazzo | Revoir le design du plateau + fins de course X/Y |
+| **Carte MKS Base V1.4** | 🟡 En cours de câblage | RhomDev | Raccordement moteurs X/Y, endstops et variateur |
+| **Besoins & Approvisionnement**| 🟢 Liste établie | matazzo & RhomDev | Passage des commandes des composants |
+| **Firmware Arduino** | 🟡 En cours d'adaptation | RhomDev | Routine de Homing aiguille + lecture encodeur |
 | **Suite Logicielle Python** | ⚪ À démarrer | matazzo & RhomDev | Script de parsing G-code & envoi série |
 
 ---
 
 ## 📌 Tâches Immédiates (Sprint Actuel)
 
-### Informations et connaissances 
+### Validation Fonctionnelle Machine
+- [x] **Comprendre le fonctionnement d'une machine à coudre & valider la mécanique de piquage :**
+  - Tests manuels effectués le 02/11/2026 : points réguliers obtenus et tracé complet d'une forme géométrique (carré) réussi.
 
-- [ ] comprendre le fonctionnement d'une machine à coudre (limite à rencontrer des couturier)
+### Approvisionnement & Besoins
+- [x] Préparer la liste détaillée des composants et matériels à commander (BOM).
+- [ ] Valider et passer la commande des pièces manquantes.
+
+### Mécanique & Plateau de Travail
+- [ ] **Revoir le design du plateau de travail :** optimisation des dimensions, rigidification et fixation du cadre.
+- [ ] Concevoir et intégrer les supports pour les **fins de course des axes X et Y** (homing du cadre).
+- [ ] Modéliser et imprimer en 3D la poulie crantée (16 à 18 dents) pour l'`[[Encodeur_Rotatif_SEN0230|encodeur SEN0230]]`.
+- [ ] Installer le support et la came mécanique sur l'arbre pour le `[[Capteur_Fin_de_Course_Aiguille|fin de course aiguille]]`.
 
 ### Électronique & Câblage
-- [ ] Câbler les moteurs pas à pas des axes X et Y sur les connecteurs dédiés de la `[[Carte_MKS_Base_V1_4|MKS Base V1.4]]`.
-- [ ] Réaliser le montage sur platine ou graver le circuit imprimé du conditionneur AOP (`[[Conditionnement_AOP_H21A1|carte acquisition capteur]]`).
-- [ ] Câbler le capteur de position d'aiguille `[[Fourche_Optique_H21A1|H21A1]]` via la carte comparatrice sur la pin d'interruption `PD2` (Pin 19 / `INT2`).
-- [ ] Câbler le `[[Module_Variateur_AC|Module Variateur AC RobotDyn]]` sur le secteur 230V avec boîte de protection isolante et brancher les broches logiques `ZC` et `PSM` sur la MKS Base.
+- [ ] Câbler le **capteur fin de course aiguille** sur l'entrée Endstop dédiée de la `[[Carte_MKS_Base_V1_4|MKS Base V1.4]]`.
+- [ ] Câbler l'**encodeur rotatif SEN0230** (alimentation 5V et canaux A/B).
+- [ ] Câbler les **fins de course du plateau X et Y**.
+- [ ] Mettre en place et raccorder le `[[Module_Variateur_AC|Module Variateur AC RobotDyn]]` (230V AC et signaux `ZC` / `PSM`) pour le contrôle de la vitesse moteur.
+- [ ] Raccorder les moteurs pas-à-pas NEMA 17 des axes X et Y.
 
 ### Firmware & Logiciel
-- [ ] Tester le mouvement élémentaire des axes X et Y (script test pas-à-pas sur microcontrôleur).
-- [ ] Valider le déclenchement de l'interruption aiguille en rotation réelle moteur avec le code `src/arduino/test_H21A1/test_H21A1.ino`.
-- [ ] Écrire le sketch de test du variateur AC avec rampe de démarrage doux.
+- [ ] Développer la séquence de **Homing aiguille** au démarrage (recherche du contact haut et RAZ encodeur).
+- [ ] Tester le contrôle de vitesse moteur via le variateur AC.
+- [ ] Tester le déplacement élémentaire XY avec prise d'origine sur les fins de course du plateau.
 
 ---
 
@@ -56,6 +70,7 @@ aliases:
 
 ---
 **Liens utiles :**
+* `[[Structure_Taches_Gantt|Décomposition des Tâches & WBS Gantt]]`
+* `[[Planning_Gantt.gan|Fichier GanttProject]]`
 * `[[00_Tableau_de_Bord|Tableau de Bord Principal]]`
 * `[[Cahier_des_Charges|Cahier des Charges]]`
-* Planning prévisionnel : `[[Planning_Gantt.gan]]`

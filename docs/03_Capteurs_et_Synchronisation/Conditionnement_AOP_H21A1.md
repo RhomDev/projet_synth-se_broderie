@@ -1,5 +1,5 @@
 ---
-titre: Module de Conditionnement du Signal Capteur (Comparateur AOP LM741)
+titre: Module de Conditionnement du Signal Capteur (Comparateur LM393)
 date: 2026-09-30
 projet: Module Broderie
 tags:
@@ -7,28 +7,39 @@ tags:
   - capteur
   - aop
   - comparateur
+  - lm393
   - mks_base
   - kicad
   - pcb
-statut: valide
+statut: abandonne
 aliases:
   - mise_en_service_capteur_h21a1
   - Conditionnement AOP H21A1
   - Module de correction du signal
+  - Conditionnement LM393
 ---
 
-# Module de Conditionnement du Signal Capteur (Comparateur AOP)
+# Module de Conditionnement du Signal Capteur (Comparateur LM393)
+
+> [!WARNING] Module Obsolète / Remplacé (02/11/2026)
+> Suite à l'abandon de la fourche optique H21A1, ce module de conditionnement analogique AOP/LM393 n'est plus requis dans l'architecture matérielle finale.
+> Le microcontrôleur lit désormais directement un **[[Capteur_Fin_de_Course_Aiguille|fin de course mécanique standard]]** (contact sec 0V/5V) pour le homing et la position haute, et un **[[Encodeur_Rotatif_SEN0230|encodeur rotatif SEN0230]]**.
+> Consulter la note explicative : `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision]]`.
 
 ## 1. Contexte et Problématique
 La partie réceptrice du capteur optique à fente `[[Fourche_Optique_H21A1|H21A1]]` se comporte comme une résistance variable. Selon la présence ou l'absence d'obstacle dans la fente, sa résistance interne passe de moins de $1\text{ M}\Omega$ à une valeur comprise entre $3\text{ M}\Omega$ et $6\text{ M}\Omega$.
 
 * **À vide (mesure au multimètre) :** La tension varie parfaitement entre $5\text{ V}$ et environ $0{,}8\text{ V}$. Cette plage est théoriquement idéale pour le microcontrôleur de la carte `[[Carte_MKS_Base_V1_4|MKS Base V1.4]]`, car toute tension inférieure à $1{,}5\text{ V}$ est considérée comme un niveau logique bas (`LOW`) stable, permettant la détection fiable d'un front descendant (`FALLING`).
-* **En charge (connecté à la carte hôte) :** Lorsque la sortie du capteur est reliée à l'entrée numérique du microcontrôleur, la tension basse remonte à cause des résistances internes de tirage de la carte. La tension stagne alors autour de $2{,}0\text{ V} - 2{,}5\text{ V}$, ce qui représente une zone d'incertitude instable pour l'étage d'entrée logique du processeur ATmega2560.
+* **En charge (connecté à la carte hôte) :** Lorsque la sortie du capteur est reliée à l'entrée numérique du microcontrôleur, la tension basse remonte à cause des résistances internes de tirage de la carte. La tension stagne alors autour de $2{,}0\text{ V} - 2{,}5\text{ V}$, ce qui représente une zone d'incertitude instable pour l'étage d'entrée logique du processeur ATmega2560 ($1{,}5\text{ V} < V < 3{,}0\text{ V}$).
 
 ---
 
-## 2. Principe de la Solution : L'Amplificateur Opérationnel en Comparateur
+## 2. Choix Technologique : Du LM741/TL081 au Comparateur Dédié LM393
 Pour isoler le capteur de l'influence de la carte et garantir une détection sans faille, nous avons conçu un module intermédiaire de conditionnement.
+
+> [!IMPORTANT]
+> Les tests expérimentaux avec des amplificateurs opérationnels classiques (LM741, TL081CN, LM318N) ont révélé qu'ils **ne conviennent pas** en alimentation unilatérale $0\text{ V} / 5\text{ V}$ car ils ne sont pas *rail-to-rail* (perte de $1{,}5\text{ V}$ à $2\text{ V}$ aux bornes).
+> Le composant validé est le **LM393**, un vrai comparateur de tension à alimentation simple ($5\text{ V}$) avec sortie à collecteur ouvert (voir l'étude complète dans `[[comparateur-aop-choix]]` et la `[[Note_Decision_Capteur_Fourche_H21A1]]`).
 
 Son rôle est de convertir la tension analogique instable issue du capteur en un signal tout-ou-rien digital parfaitement franc ($0\text{ V}$ ou $5\text{ V}$ purs) :
 
@@ -80,6 +91,9 @@ Le circuit complet a été saisi et routé sous KiCad dans le dossier [`hardware
 
 ---
 **Voir aussi :**
+* `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision : Maintien du H21A1 vs Encodeur]]`
+* `[[comparateur-aop-choix|Note de Conception : Choix de l'AOP / Comparateur LM393]]`
 * `[[Fourche_Optique_H21A1|Fiche Capteur H21A1]]`
 * `[[Carte_MKS_Base_V1_4|Connexion à la Carte MKS Base]]`
 * `[[00_Tableau_de_Bord|Tableau de Bord]]`
+* Code de test : `src/arduino/test_H21A1/test_H21A1.ino`

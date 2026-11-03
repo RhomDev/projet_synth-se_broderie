@@ -1,19 +1,88 @@
-# Données du projet (on garde les dossiers mais on ignore le contenu)
+# ==============================================================================
+# Fichier .gitignore - Projet Brodeuse Numérique CNC (MKS Base V1.4 / ATmega2560)
+# ==============================================================================
+
+# --- Données du projet ---
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
 
-# Fichiers de compilation Arduino
+# --- Environnements virtuels & Compilation Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+.pytest_cache/
+.mypy_cache/
+
+# --- Compilation & Fichiers temporaires Arduino / AVR ---
 src/arduino/build/
 *.hex
 *.elf
+*.bin
+*.o
+*.a
+*.s
+*.d
+*.eep
+*.lst
+*.lss
+*.sym
+*.map
+.arduino/
+.arduino15/
 
-# Fichiers de compilation et d'environnement Python
-__pycache__/
-*.pyc
-.venv/
-env/
+# --- Obsidian - Configuration locale & Cache de session ---
+# On conserve la configuration partagée (.obsidian/*.json de base, plugins)
+# mais on ignore les états de session locaux, mobiles et le cache d'indexation
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
 
-# Fichiers système Windows
+# --- Conception Électronique & CAO (KiCad / FreeCAD) ---
+*.kicad_prl
+*.bck
+*_autosave*
+*.bak
+*-save.kicad_pcb
+*-save.kicad_sch
+.history/
+*.FCStd1
+*~
+
+# --- Fichiers système & Éditeurs ---
+.DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+*.bak
+*.tmp
+.vscode/
+.idea/

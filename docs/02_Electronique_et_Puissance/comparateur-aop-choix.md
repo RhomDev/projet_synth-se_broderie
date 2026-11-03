@@ -1,3 +1,15 @@
+---
+titre: Comparateur AOP
+date: 2026-10-23
+projet: Module Broderie
+tags:
+  - electronique
+statut: valide
+aliases:
+  - carte_de_commande_mks_base_v1_4
+  - MKS Base V1.4
+  - MKS Base
+---
 # Comparateur capteur H21A1 : choix de l'AOP
 
 Note de conception : pourquoi le LM318N et le TL081CN ne conviennent pas à une alimentation 5 V, et quel composant utiliser à la place.
