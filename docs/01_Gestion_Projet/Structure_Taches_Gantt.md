@@ -59,19 +59,14 @@ Ce document fournit la décomposition arborescente complète des lots de travail
 | **4.0** | **PHASE 4 : CONCEPTION MÉCANIQUE & APPROVISIONNEMENT** | | | | | | | |
 | 4.1 | Commande des composants et fournitures (BOM) | **[À FAIRE]** | Tous | 5j | 04/11/2026 | 10/11/2026 | 3.5 | Bons de commande |
 | 4.2 | Revoir le design CAO du plateau de travail XY | **[À FAIRE]** | matazzo | 5j | 04/11/2026 | 11/11/2026 | 3.1 | Modèle 3D plateau |
-| 4.3 | Modélisation 3D de la poulie encodeur (16-18 dents) | **[À FAIRE]** | matazzo | 2j | 04/11/2026 | 06/11/2026 | 3.4 | Fichier STL poulie |
-| 4.4 | Impression 3D de la poulie crantée (PETG/Nylon) | **[À FAIRE]** | matazzo | 1j | 06/11/2026 | 07/11/2026 | 4.3 | Pièce mécanique imprimée |
-| 4.5 | Conception et impression du support encodeur | **[À FAIRE]** | matazzo | 3j | 07/11/2026 | 11/11/2026 | 4.4 | Support rigide monté |
-| 4.6 | Conception de la came d'arbre & support switch PMH | **[À FAIRE]** | RhomDev | 3j | 05/11/2026 | 09/11/2026 | 3.3 | Support + came PMH |
-| 4.7 | Supports et butées des fins de course plateau X/Y | **[À FAIRE]** | matazzo | 3j | 09/11/2026 | 12/11/2026 | 4.2 | Butées X/Y installées |
-| 4.8 | Fabrication / usinage du nouveau plateau de travail | **[À FAIRE]** | matazzo | 4j | 11/11/2026 | 16/11/2026 | 4.2 | Plateau assemblé |
+| 4.3 | Supports et butées des fins de course plateau X/Y | **[À FAIRE]** | matazzo | 3j | 09/11/2026 | 12/11/2026 | 4.2 | Butées X/Y installées |
+| 4.4 | Fabrication / usinage du nouveau plateau de travail | **[À FAIRE]** | matazzo | 4j | 11/11/2026 | 16/11/2026 | 4.2 | Plateau assemblé |
 | **5.0** | **PHASE 5 : ÉLECTRONIQUE, CÂBLAGE & PUISSANCE** | | | | | | | |
 | 5.1 | Réception & vérification des composants commandés | **[À FAIRE]** | Tous | 1j | 11/11/2026 | 12/11/2026 | 4.1 | Matériel réceptionné |
 | 5.2 | Intégration sous boîtier sécurisé du variateur AC | **[À FAIRE]** | RhomDev | 3j | 12/11/2026 | 16/11/2026 | 5.1 | Boîtier 230V isolé |
 | 5.3 | Câblage des moteurs pas-à-pas X/Y sur MKS Base | **[À FAIRE]** | RhomDev | 2j | 12/11/2026 | 14/11/2026 | 2.1, 4.8 | Moteurs raccordés |
 | 5.4 | Câblage des fins de course (Aiguille PMH, X-Min, Y-Min)| **[À FAIRE]** | RhomDev | 2j | 13/11/2026 | 16/11/2026 | 4.6, 4.7 | Faisceau endstops |
-| 5.5 | Câblage de l'encodeur SEN0230 sur la carte MKS | **[À FAIRE]** | RhomDev | 1j | 16/11/2026 | 17/11/2026 | 4.5, 5.1 | Canaux A/B connectés |
-| 5.6 | Validation électrique globale sous tension (12V & 230V)| **[À FAIRE]** | Tous | 2j | 17/11/2026 | 19/11/2026 | 5.2, 5.3, 5.4, 5.5 | Banc électrique validé |
+| 5.5 | Validation électrique globale sous tension (12V & 230V)| **[À FAIRE]** | Tous | 2j | 17/11/2026 | 19/11/2026 | 5.2, 5.3, 5.4, 5.5 | Banc électrique validé |
 | **6.0** | **PHASE 6 : DÉVELOPPEMENT FIRMWARE ARDUINO (C++)** | | | | | | | |
 | 6.1 | Firmware : Routine d'interruption ZC & commande TRIAC| **[À FAIRE]** | RhomDev | 4j | 16/11/2026 | 20/11/2026 | 5.2 | Contrôle moteur AC |
 | 6.2 | Firmware : Routine de décodage encodeur (vitesse) | **[À FAIRE]** | RhomDev | 3j | 18/11/2026 | 21/11/2026 | 5.5 | Mesure de rotation |
