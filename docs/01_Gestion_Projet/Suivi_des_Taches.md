@@ -17,17 +17,17 @@ aliases:
 
 ## 🚦 Tableau d'Avancement Général
 
-| Sous-système | Statut | Responsable | Prochaine Étape |
-| :--- | :--- | :--- | :--- |
-| **Capteur Aiguille (H21A1)** | 🔴 Abandonné (trop contraignant) | RhomDev & matazzo | Remplacement par fin de course mécanique |
-| **Synchronisation Aiguille** | 🟢 Solution validée (Fin de course PMH + SEN0230) | RhomDev & matazzo | Montage came PMH & impression poulie encodeur |
-| **Tests Machine Manuels** | 🟢 Validés (02/11/2026) | RhomDev & matazzo | Réalisation de points manuels et d'un carré réussie |
-| **Variateur Moteur AC** | 🟡 En cours de mise en place | RhomDev | Câblage module RobotDyn & régulation vitesse |
-| **Mécanique Plateau XY** | 🟡 Redesign en cours | matazzo | Revoir le design du plateau + fins de course X/Y |
-| **Carte MKS Base V1.4** | 🟡 En cours de câblage | RhomDev | Raccordement moteurs X/Y, endstops et variateur |
-| **Besoins & Approvisionnement**| 🟢 Liste établie | matazzo & RhomDev | Passage des commandes des composants |
-| **Firmware Arduino** | 🟡 En cours d'adaptation | RhomDev | Routine de Homing aiguille + lecture encodeur |
-| **Suite Logicielle Python** | ⚪ À démarrer | matazzo & RhomDev | Script de parsing G-code & envoi série |
+| Sous-système                    | Statut                                            | Responsable       | Prochaine Étape                                     |
+| :------------------------------ | :------------------------------------------------ | :---------------- | :-------------------------------------------------- |
+| **Capteur Aiguille (H21A1)**    | 🔴 Abandonné (trop contraignant)                  | RhomDev & matazzo | Remplacement par fin de course mécanique            |
+| **Synchronisation Aiguille**    | 🟢 Solution validée (Fin de course PMH + SEN0230) | RhomDev & matazzo | Montage came PMH & impression poulie encodeur       |
+| **Tests Machine Manuels**       | 🟢 Validés (02/11/2026)                           | RhomDev & matazzo | Réalisation de points manuels et d'un carré réussie |
+| **Variateur Moteur AC**         | 🟡 En cours de mise en place                      | RhomDev           | Câblage module RobotDyn & régulation vitesse        |
+| **Mécanique Plateau XY**        | 🟡 Redesign en cours                              | matazzo           | Revoir le design du plateau + fins de course X/Y    |
+| **Carte MKS Base V1.4**         | 🟡 En cours de câblage                            | RhomDev           | Raccordement moteurs X/Y, endstops et variateur     |
+| **Besoins & Approvisionnement** | 🟢 Liste établie                                  | matazzo & RhomDev | Passage des commandes des composants                |
+| **Firmware Arduino**            | 🟡 En cours d'adaptation                          | RhomDev           | Routine de Homing aiguille + lecture encodeur       |
+| **Suite Logicielle Python**     | ⚪ À démarrer                                      | matazzo & RhomDev | Script de parsing G-code & envoi série              |
 
 ---
 
@@ -49,7 +49,7 @@ aliases:
 
 ### Électronique & Câblage
 - [ ] Câbler le **capteur fin de course aiguille** sur l'entrée Endstop dédiée de la  [[Carte_MKS_Base_V1_4|MKS Base V1.4]] .
-- [ ] Câbler l'**encodeur rotatif SEN0230** (alimentation 5V et canaux A/B).
+- [x] Câbler l'**encodeur rotatif SEN0230** (alimentation 5V et canaux A/B). (Abandonnée)
 - [ ] Câbler les **fins de course du plateau X et Y**.
 - [ ] Mettre en place et raccorder le  [[Module_Variateur_AC|Module Variateur AC RobotDyn]]  (230V AC et signaux  ZC  /  PSM ) pour le contrôle de la vitesse moteur.
 - [ ] Raccorder les moteurs pas-à-pas NEMA 17 des axes X et Y.
