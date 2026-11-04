@@ -78,11 +78,10 @@ aliases:
   - Responsable : Tous — Fait le 02/11/2026
 - [x] **3.3 — Choix du fin de course à galet (PMH & homing)** [Tous]
   - Responsable : Tous — Fait le 02/11 → 03/11/2026
-- [x] **3.4 — Validation de l'encodeur rotatif SEN0230** [matazzo]
-  - Responsable : matazzo — Fait le 02/11 → 03/11/2026
 - [x] **3.5 — Établissement de la liste des besoins (BOM)** [Tous]
   - Responsable : Tous — Fait le 02/11 → 03/11/2026
-
+- [x] **3.6 — Etude du fonction de la machine a coudre** [Tous
+ - Responsable : Tous — Fait le 02/11 → 03/11/2026
 ---
 
 ## PHASE 4 : CONCEPTION MÉCANIQUE & APPROVISIONNEMENT 🟡
@@ -101,6 +100,7 @@ aliases:
   - Responsable : matazzo — Prévu : 11/11 → 16/11/2026
   - Livrable : Plateau assemblé
   - Prédécesseur : 4.2
+- [ ] **4.5 — Conception support détection aiguille** [matazzo]
 
 ---
 
@@ -126,6 +126,7 @@ aliases:
   - Responsable : Tous — Prévu : 17/11 → 19/11/2026
   - Livrable : Banc électrique validé sans défaut
   - Prédécesseur : 5.2, 5.3, 5.4
+- [ ] **5.6 — Conception et Teste du module de détection partie élect** [RhomDev]
 
 ---
 
@@ -135,44 +136,41 @@ aliases:
   - Responsable : RhomDev — Prévu : 16/11 → 20/11/2026
   - Livrable : Contrôle moteur AC fonctionnel
   - Prédécesseur : 5.2
-- [ ] **6.2 — Firmware : Routine de décodage encodeur (vitesse)** [RhomDev]
-  - Responsable : RhomDev — Prévu : 18/11 → 21/11/2026
-  - Livrable : Mesure de rotation temps réel
-  - Prédécesseur : 5.5
-- [ ] **6.3 — Firmware : Séquence de Homing aiguille (PMH galet)** [RhomDev]
+- [ ] **6.2 — Firmware : Séquence de Homing aiguille (PMH galet)** [matazzo]
   - Responsable : RhomDev — Prévu : 20/11 → 23/11/2026
   - Livrable : Homing aiguille validé
   - Prédécesseur : 5.4, 6.1
-- [ ] **6.4 — Firmware : Séquence de Homing plateau X/Y** [RhomDev]
+- [ ] **6.3 — Firmware : Séquence de Homing plateau X/Y** [matazzo]
   - Responsable : RhomDev — Prévu : 21/11 → 24/11/2026
   - Livrable : Homing axes X/Y validé
   - Prédécesseur : 5.3, 5.4
-- [ ] **6.5 — Firmware : Machine à états de synchronisation aiguille** [RhomDev]
+- [ ] **6.4 — Firmware : Machine à états de synchronisation aiguille** [RhomDev]
   - Responsable : RhomDev — Prévu : 24/11 → 30/11/2026
   - Livrable : Fenêtre d'avance sûre déterminée
   - Prédécesseur : 6.2, 6.3, 6.4
-- [ ] **6.6 — Firmware : Interpréteur G-code (mouvements X/Y)** [RhomDev]
+- [ ] **6.5 — Firmware : Interpréteur G-code (mouvements X/Y)** [RhomDev]
   - Responsable : RhomDev — Prévu : 27/11 → 02/12/2026
   - Livrable : Décodage G0/G1 opérationnel
   - Prédécesseur : 6.5
+- [ ] **6.6 — Firmware : Machine à états de synchronisation aiguille** [RhomDev]
 
 ---
 
 ## PHASE 7 : SUITE LOGICIELLE PYTHON HÔTE ⚪
 
-- [ ] **7.1 — Streamer USB série robuste (serial_bridge.py)** [matazzo]
+- [ ] **7.1 — Streamer USB série robuste (serial_bridge.py)** [RhomDev]
   - Responsable : matazzo — Prévu : 20/11 → 24/11/2026
   - Livrable : Pont série avec acquittement 'ok'
   - Prédécesseur : 2.1
-- [ ] **7.2 — Module de vectorisation & extraction des points (SVG)** [matazzo]
+- [ ] **7.2 — Module de vectorisation & extraction des points (SVG)** [RhomDev]
   - Responsable : matazzo — Prévu : 24/11 → 30/11/2026
   - Livrable : Script vectorisation fonctionnel
   - Prédécesseur : 7.1
-- [ ] **7.3 — Générateur de G-code spécialisé broderie** [matazzo]
+- [ ] **7.3 — Générateur de G-code spécialisé broderie** [RhomDev]
   - Responsable : matazzo — Prévu : 30/11 → 04/12/2026
   - Livrable : Fichier G-code généré depuis SVG
   - Prédécesseur : 7.2
-- [ ] **7.4 — Visualiseur 2D de trajectoires avant broderie** [matazzo]
+- [ ] **7.4 — Visualiseur 2D de trajectoires avant broderie** [RhomDev]
   - Responsable : matazzo — Prévu : 03/12 → 07/12/2026
   - Livrable : IHM ou plot matplotlib
   - Prédécesseur : 7.3
