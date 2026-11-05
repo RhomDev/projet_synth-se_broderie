@@ -5,6 +5,7 @@ static uint8_t last_PINB = 0;
 void setup() {
   // Configuration de PB2 (SD_MOSI) et PB0 (SD_SS) en entrée
   DDRB &= ~((1 << PB2) | (1 << PB0));
+  DDRC |= 0x50;
 
   // Capture de l'état initial de la broche
   last_PINB = PINB;
@@ -14,16 +15,24 @@ void setup() {
 
   // Activation des masques PCINT2 (PB2 / SD_MOSI) et PCINT0 (PB0 / SD_SS)
   PCMSK0 |= (1 << PCINT2) | (1 << PCINT0);
+
+  // Extinction par défaut des sorties au démarrage (état bas 0V)
+  PORTC &= ~((1 << PC4) | (1 << PC6));
 }
 
 void loop() {
   if (flag_MOSI_rising) {
-    // Traitement front montant SD_MOSI
-    flag_MOSI_rising = false;
+    PORTC |= (1 << PC4);       // Allume PC4 (Pin 33)
+    delay(50);                // Maintient à 5V pendant 200 ms (ajustable)
+    PORTC &= ~(1 << PC4);      // Éteint PC4 (retour à 0V)
+    flag_MOSI_rising = false;  // Réinitialise le drapeau d'interruption
   }
+
   if (flag_SS_rising) {
-    // Traitement front montant SD_SS
-    flag_SS_rising = false;
+    PORTC |= (1 << PC6);       // Allume PC6 (Pin 31)
+    delay(50);                // Maintient à 5V pendant 200 ms (ajustable)
+    PORTC &= ~(1 << PC6);      // Éteint PC6 (retour à 0V)
+    flag_SS_rising = false;    // Réinitialise le drapeau d'interruption
   }
 }
 
