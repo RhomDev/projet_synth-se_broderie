@@ -63,6 +63,7 @@ src/arduino/build/
 .obsidian/workspace-mobile.json
 .obsidian/cache/
 
+
 # --- Conception Électronique & CAO (KiCad / FreeCAD) ---
 *.kicad_prl
 *.bck
@@ -86,3 +87,11 @@ Desktop.ini
 *.tmp
 .vscode/
 .idea/
+=======
+# Fichiers système Windows
+Thumbs.db
+
+.obsidian/workspace.json
+.obsidian/workspace.json.bak
+.obsidian/workspace.json
+
