@@ -3,29 +3,36 @@ volatile bool object = false;
 void setup() {
   Serial.begin(115200);
   
-  // Configuration de PB7 (Pin 13) en sortie (0x80)
-  DDRB |= 0x80; 
+  // Configuration de la broche 7 (PH4) en sortie et extinction par défaut
+  DDRH |= (1 << PH4); 
+  PORTH &= ~(1 << PH4); 
   
-  // Configuration de PD2 (Pin 19) en entrée (mise à 0 du bit 2 du port D)
-  DDRD &= ~0x04; 
-
+  // Configuration de la broche 19 (PD2) en entrée pour l'interruption INT2
+  DDRD &= ~(1 << PD2); 
+  PORTD |= (1 << PD2); // Pull-up interne
+  
   // Configuration de l'interruption INT2 sur front descendant (FALLING)
-  // ISC21 = 1 et ISC20 = 0 dans le registre EICRA
-  EICRA |= (1 << ISC21);
-  EICRA &= ~(1 << ISC20);
+  EICRA &= ~((1 << ISC21) | (1 << ISC20));
+  EICRA |= (1 << ISC21); 
 
-  // Activation de l'interruption INT2 dans le registre EIMSK
+  // Nettoyage du drapeau et activation de INT2
+  EIFR = (1 << INTF2);
   EIMSK |= (1 << INT2);
 }
 
 void loop() {
   if (object) {
-    PORTB |= 0x80; // Met la sortie PB7 à l'état haut
-    object = false; 
+    PORTH |= (1 << PH4); // Met la broche 7 à l'état haut
+    Serial.println("Front détecté ! Sortie 7 activée.");
+    
+    delay(500); // Maintient le signal actif pendant 500ms
+    PORTH &= ~(1 << PH4); // Remet la broche 7 à l'état bas
+    
+    object = false; // Réarmement
   }
 }
 
-// Routine d'interruption vectorielle pour INT2 (Pin 19)
+// Routine d'interruption pour INT2 (Pin 19 / PD2)
 ISR(INT2_vect) {
   object = true;
 }

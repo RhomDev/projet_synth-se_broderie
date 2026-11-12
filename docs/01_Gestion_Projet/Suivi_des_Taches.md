@@ -24,6 +24,7 @@ aliases:
 
 ## 🚦 Tableau d'Avancement Général
 
+<<<<<<< HEAD
 | Phase | Description | Avancement | Responsable(s) |
 | :---: | :--- | :---: | :--- |
 | 1.0 | Cadrage & Spécifications | ✅ 100% | Tous |
@@ -35,11 +36,22 @@ aliases:
 | 7.0 | Suite Logicielle Python Hôte | ⚪ 0% | matazzo |
 | 8.0 | Intégration Globale & Tests sur Tissu | ⚪ 0% | Tous |
 | 9.0 | Rapport, Diaporama & Soutenance | ⚪ 0% | Tous |
+=======
+| Sous-système                 | Statut                     | Responsable       | Prochaine Étape                            |
+| :--------------------------- | :------------------------- | :---------------- | :----------------------------------------- |
+| **Capteur Aiguille (H21A1)** | 🟡  En Étude               | RhomDev & matazzo | Fabrication PCB & validation banc          |
+| **Carte MKS Base V1.4**      | 🟡 En cours de câblage     | RhomDev           | Raccordement moteurs X/Y & alimentation    |
+| **Variateur Moteur AC**      | 🟡  à Modélisé & Documenté | RhomDev           | Câblage module RobotDyn & tests sécurisés  |
+| **Mécanique Plateau XY**     | 🟡 Contrôle à faire        | matazzo           | Vérification tension courroies & guidages  |
+| **Firmware Arduino**         | 🟡 Tests partiels (INT2)   | RhomDev           | Intégration boucle temps réel X/Y/Aiguille |
+| **Suite Logicielle Python**  | ⚪ À démarrer               | matazzo & RhomDev | Script de parsing G-code & envoi série     |
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 
 ---
 
 ## PHASE 1 : CADRAGE & SPÉCIFICATIONS ✅
 
+<<<<<<< HEAD
 - [x] **1.1 — Prise en main du sujet & définition du besoin** [Tous]
   - Responsable : Tous — Fait le 26/09 → 28/09/2026
 - [x] **1.2 — Analyse de la machine Janome Facility 21** [RhomDev]
@@ -48,6 +60,22 @@ aliases:
   - Responsable : Tous — Fait le 29/09 → 01/10/2026
 - [x] **1.4 — Déploiement du coffre Obsidian & arborescence Git** [RhomDev]
   - Responsable : RhomDev — Fait le 01/10 → 02/10/2026
+=======
+### Informations et connaissances 
+
+- [ ] comprendre le fonctionnement d'une machine à coudre (limite à rencontrer des couturier)
+
+### Électronique & Câblage
+- [ ] Câbler les moteurs pas à pas des axes X et Y sur les connecteurs dédiés de la [[Carte_MKS_Base_V1_4|MKS Base V1.4]]`.
+- [ ] Réaliser le montage sur platine ou graver le circuit imprimé du conditionneur AOP ([[Conditionnement_AOP_H21A1|carte acquisition capteur]]`).
+- [ ] Câbler le capteur de position d'aiguille [[Fourche_Optique_H21A1|H21A1]]` via la carte comparatrice sur la pin d'interruption `PD2` (Pin 19 / `INT2`).
+- [ ] Câbler le [[Module_Variateur_AC|Module Variateur AC RobotDyn]]` sur le secteur 230V avec boîte de protection isolante et brancher les broches logiques `ZC` et `PSM` sur la MKS Base.
+
+### Firmware & Logiciel
+- [ ] Tester le mouvement élémentaire des axes X et Y (script test pas-à-pas sur microcontrôleur).
+- [ ] Valider le déclenchement de l'interruption aiguille en rotation réelle moteur avec le code `src/arduino/test_H21A1/test_H21A1.ino`.
+- [ ] Écrire le sketch de test du variateur AC avec rampe de démarrage doux.
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 
 ---
 
@@ -225,7 +253,13 @@ aliases:
 ---
 
 **Liens utiles :**
+<<<<<<< HEAD
 *  [[Structure_Taches_Gantt|Décomposition des Tâches & WBS Gantt]] 
 *  [[Planning_Gantt.gan|Fichier GanttProject]] 
 *  [[00_Tableau_de_Bord|Tableau de Bord Principal]] 
 *  [[Cahier_des_Charges|Cahier des Charges]] 
+=======
+* [[00_Tableau_de_Bord|Tableau de Bord Principal]]`
+* [[Cahier_des_Charges|Cahier des Charges]]`
+* Planning prévisionnel : [[Planning_Gantt.gan]]`
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)

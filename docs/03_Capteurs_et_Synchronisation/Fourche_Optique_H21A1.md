@@ -55,6 +55,7 @@ La lecture de la documentation constructeur met en évidence la sensibilité de 
 ## 3. Comportement sous Charge & Nécessité du Conditionnement
 Bien que le capteur réagisse rapidement, son impédance de sortie élevée pose un problème direct lorsqu'il est raccordé aux entrées numériques du microcontrôleur ATmega2560 :
 * La tension basse remonte à $2{,}0\text{ V} - 2{,}5\text{ V}$ au lieu de descendre sous $0{,}8\text{ V}$.
+<<<<<<< HEAD
 * Ce signal flottant stagne dans la zone d'indécision logique du microcontrôleur ATmega2560 ($1{,}5\text{ V} < V < 3{,}0\text{ V}$).
 * L'idée initiale d'utiliser un encodeur rotatif pour contourner ce problème a été rejetée pour éviter de surcharger le processeur avec 6000 interruptions/s (voir la `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision]]`).
 * La solution retenue consiste à insérer un comparateur de tension dédié **LM393** (alimenté en 5V simple, sortie collecteur ouvert avec pull-up), délivrant un signal numérique franc 0V/5V pour déclencher de manière infaillible l'interruption sur front descendant (`FALLING`).
@@ -66,4 +67,13 @@ Bien que le capteur réagisse rapidement, son impédance de sortie élevée pose
 * `[[comparateur-aop-choix|Choix des composants AOP/Comparateur]]`
 * `[[Carte_MKS_Base_V1_4|Raccordement Carte MKS Base]]`
 * `[[capteur_position_H21A1.pdf|Datasheet officielle H21A1]]`
+=======
+* Cela nécessite l'insertion de l'étage de mise en forme par AOP décrit dans [[Conditionnement_AOP_H21A1|Conditionnement du signal H21A1]]`.
+
+---
+**Voir aussi :**
+* [[Conditionnement_AOP_H21A1|Carte Comparateur AOP LM741 & PCB]]`
+* [[Carte_MKS_Base_V1_4|Raccordement Carte MKS Base]]`
+* [[capteur_position_H21A1.pdf|Datasheet officielle H21A1]]`
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 * Code de test : `src/arduino/test_H21A1/test_H21A1.ino`

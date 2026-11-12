@@ -10,7 +10,7 @@ statut: en cours
 # Journal de bord — {{date}}
 
 ## 👥 Intervenants
-* **RhomDev** (Romaric Pradeau)
+* **RhomDev** (Romaric Pradeau)S
 * **matazzo** (Maé Tazzioli)
 
 ---

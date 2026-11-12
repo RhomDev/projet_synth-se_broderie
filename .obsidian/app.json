@@ -2,5 +2,11 @@
   "attachmentFolderPath": "docs/assets",
   "useMarkdownLinks": false,
   "newFileLocation": "folder",
-  "newFileFolderPath": "docs"
+  "newFileFolderPath": "docs",
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }

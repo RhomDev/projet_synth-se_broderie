@@ -27,10 +27,15 @@ aliases:
 > Consulter la note explicative : `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision]]`.
 
 ## 1. Contexte et Problématique
-La partie réceptrice du capteur optique à fente `[[Fourche_Optique_H21A1|H21A1]]` se comporte comme une résistance variable. Selon la présence ou l'absence d'obstacle dans la fente, sa résistance interne passe de moins de $1\text{ M}\Omega$ à une valeur comprise entre $3\text{ M}\Omega$ et $6\text{ M}\Omega$.
+La partie réceptrice du capteur optique à fente [[Fourche_Optique_H21A1|H21A1]]` se comporte comme une résistance variable. Selon la présence ou l'absence d'obstacle dans la fente, sa résistance interne passe de moins de $1\text{ M}\Omega$ à une valeur comprise entre $3\text{ M}\Omega$ et $6\text{ M}\Omega$.
 
+<<<<<<< HEAD
 * **À vide (mesure au multimètre) :** La tension varie parfaitement entre $5\text{ V}$ et environ $0{,}8\text{ V}$. Cette plage est théoriquement idéale pour le microcontrôleur de la carte `[[Carte_MKS_Base_V1_4|MKS Base V1.4]]`, car toute tension inférieure à $1{,}5\text{ V}$ est considérée comme un niveau logique bas (`LOW`) stable, permettant la détection fiable d'un front descendant (`FALLING`).
 * **En charge (connecté à la carte hôte) :** Lorsque la sortie du capteur est reliée à l'entrée numérique du microcontrôleur, la tension basse remonte à cause des résistances internes de tirage de la carte. La tension stagne alors autour de $2{,}0\text{ V} - 2{,}5\text{ V}$, ce qui représente une zone d'incertitude instable pour l'étage d'entrée logique du processeur ATmega2560 ($1{,}5\text{ V} < V < 3{,}0\text{ V}$).
+=======
+* **À vide (mesure au multimètre) :** La tension varie parfaitement entre $5\text{ V}$ et environ $0{,}8\text{ V}$. Cette plage est théoriquement idéale pour le microcontrôleur de la carte [[Carte_MKS_Base_V1_4|MKS Base V1.4]]`, car toute tension inférieure à $1{,}5\text{ V}$ est considérée comme un niveau logique bas (`LOW`) stable, permettant la détection fiable d'un front descendant (`FALLING`).
+* **En charge (connecté à la carte hôte) :** Lorsque la sortie du capteur est reliée à l'entrée numérique du microcontrôleur, la tension basse remonte à cause des résistances internes de tirage de la carte. La tension stagne alors autour de $2{,}0\text{ V} - 2{,}5\text{ V}$, ce qui représente une zone d'incertitude instable pour l'étage d'entrée logique du processeur ATmega2560.
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
 
 ---
 
@@ -91,9 +96,15 @@ Le circuit complet a été saisi et routé sous KiCad dans le dossier [`hardware
 
 ---
 **Voir aussi :**
+<<<<<<< HEAD
 * `[[Note_Decision_Capteur_Fourche_H21A1|Note de Décision : Maintien du H21A1 vs Encodeur]]`
 * `[[comparateur-aop-choix|Note de Conception : Choix de l'AOP / Comparateur LM393]]`
 * `[[Fourche_Optique_H21A1|Fiche Capteur H21A1]]`
 * `[[Carte_MKS_Base_V1_4|Connexion à la Carte MKS Base]]`
 * `[[00_Tableau_de_Bord|Tableau de Bord]]`
 * Code de test : `src/arduino/test_H21A1/test_H21A1.ino`
+=======
+* [[Fourche_Optique_H21A1|Fiche Capteur H21A1]]`
+* [[Carte_MKS_Base_V1_4|Connexion à la Carte MKS Base]]`
+* [[00_Tableau_de_Bord|Tableau de Bord]]`
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)

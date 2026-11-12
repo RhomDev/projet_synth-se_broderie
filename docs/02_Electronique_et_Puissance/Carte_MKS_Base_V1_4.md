@@ -75,6 +75,7 @@ La **MKS Base V1.4** constitue le centre névralgique (carte mère) de la brodeu
 
 ---
 **Ressources & Schémas Associés :**
+<<<<<<< HEAD
 *  [[MKS_BASE_PINS.pdf]]  — Brochage officiel MKS Base
 *  [[MKS_BASE_V1_4_Schematic_Alimentation_P1.pdf]]  — Schéma Alimentation
 *  [[MKS_BASE_V1_4_Schematic_MOSFETs_P2.pdf]]  — Schéma Étage de puissance
@@ -82,3 +83,12 @@ La **MKS Base V1.4** constitue le centre névralgique (carte mère) de la brodeu
 *  [[ATMEGA640.PDF]]  — Datasheet Famille Microcontrôleur ATmega
 *  [[Cahier_des_Charges|Cahier des Charges Broderie]] 
 *  [[Plateau_XY_et_Mecanique|Mécanique Plateau XY]] 
+=======
+* [[MKS_BASE_PINS.pdf]]` — Brochage officiel MKS Base
+* [[MKS_BASE_V1_4_Schematic_Alimentation_P1.pdf]]` — Schéma Alimentation
+* [[MKS_BASE_V1_4_Schematic_MOSFETs_P2.pdf]]` — Schéma Étage de puissance
+* [[MKS_BASE_V1_4_Schematic_Drivers_P3.pdf]]` — Schéma Drivers Moteurs A4982
+* [[ATMEGA640.PDF]]` — Datasheet Famille Microcontrôleur ATmega
+* [[Cahier_des_Charges|Cahier des Charges Broderie]]`
+* [[Plateau_XY_et_Mecanique|Mécanique Plateau XY]]`
+>>>>>>> ce25f4e (Fix: résolution conflit workspace.json)
