@@ -60,9 +60,9 @@ src/arduino/build/
 # On conserve la configuration partagée (.obsidian/*.json de base, plugins)
 # mais on ignore les états de session locaux, mobiles et le cache d'indexation
 .obsidian/workspace.json
+.obsidian/workspace.json.bak
 .obsidian/workspace-mobile.json
 .obsidian/cache/
-
 
 # --- Conception Électronique & CAO (KiCad / FreeCAD) ---
 *.kicad_prl
@@ -83,15 +83,9 @@ Desktop.ini
 *.swp
 *.swo
 *~
-*.bak
 *.tmp
 .vscode/
 .idea/
-=======
-# Fichiers système Windows
-Thumbs.db
 
-.obsidian/workspace.json
-.obsidian/workspace.json.bak
-.obsidian/workspace.json
-
+# --- Notes de reprise de session (locales, non versionnées) ---
+REPRISE_IHM_BRODEUSE.md

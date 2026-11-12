@@ -3,3 +3,5 @@ pyserial>=3.5
 numpy>=1.24.0
 matplotlib>=3.7.0
 svgpathtools>=1.6.0
+# Interface graphique (modules essentiels de Qt 6 : QtCore, QtGui, QtWidgets)
+PySide6-Essentials>=6.12

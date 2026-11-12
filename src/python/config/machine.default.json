@@ -1,0 +1,55 @@
+{
+  "_commentaire": "Valeurs par défaut. La fenêtre Paramètres écrit un fichier utilisateur qui les remplace.",
+  "axes": {
+    "x": {
+      "_commentaire": "GT2 20 dents (40 mm/tour), 200 pas/tour, micropas 1/16 = 80 µpas/mm. Course mesurée par Machine > Mesurer les courses.",
+      "steps_per_mm": 80.0,
+      "travel_mm": null
+    },
+    "y": {
+      "steps_per_mm": 80.0,
+      "travel_mm": null
+    }
+  },
+  "limits": {
+    "_commentaire": "Plafonds : vitesse du coude 252 mm/s et a_max 100 m/s² (calcul_stepper_moteur.xlsx).",
+    "speed_max_mm_s": 250.0,
+    "accel_max_mm_s2": 100000.0,
+    "pre_home_speed_max_mm_s": 10.0,
+    "soft_margin_mm": 1.0
+  },
+  "manual": {
+    "_commentaire": "Valeurs prudentes à valider sur la machine (étape 4).",
+    "speed_mm_s": 20.0,
+    "accel_mm_s2": 1000.0,
+    "home_speed_mm_s": 10.0,
+    "calibration_speed_mm_s": 10.0,
+    "increments_mm": [0.1, 1.0, 10.0, 100.0]
+  },
+  "embroidery": {
+    "_commentaire": "Ligne de test : consigne v1 sans rampe, le cadre démarre net à chaque fenêtre. Vitesse plafonnée prudemment, à valider.",
+    "line_speed_max_mm_s": 30.0,
+    "line_length_mm": 50.0,
+    "line_stitch_mm": 2.0
+  },
+  "safety": {
+    "watchdog_enabled": true,
+    "watchdog_ms": 500
+  },
+  "link": {
+    "poll_hz": 20.0,
+    "reply_timeout_s": 0.2,
+    "lost_after_timeouts": 3,
+    "stale_after_s": 0.5
+  },
+  "view": {
+    "show_grid": true,
+    "grid_step_mm": 10.0,
+    "forbidden_zones": []
+  },
+  "simulation": {
+    "_commentaire": "Valeurs FICTIVES du simulateur, sans rapport avec les dimensions réelles.",
+    "travel_mm": [300.0, 200.0],
+    "start_mm": [120.0, 80.0]
+  }
+}
